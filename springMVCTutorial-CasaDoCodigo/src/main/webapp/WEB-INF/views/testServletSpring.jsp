@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	Welcome spring project.
+	Teste de configuração da servlet do spring
 </body>
 </html>

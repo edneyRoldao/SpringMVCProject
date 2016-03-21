@@ -2,19 +2,23 @@ package com.springTutorialCadaDoCodigo.springConfig;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
-import com.springTutorialCadaDoCodigo.controller.HomeController;
+import com.springTutorialCadaDoCodigo.controller.TestController;
 
 /**
  * Nessa classe iremos registrar todos os nossos controllers
  * @author Edney Roldao
  *
  */
-@EnableWebMvc // Esse annotation vai dar suporte para conversão de JSon, xml e geração de RSS
-@ComponentScan(basePackageClasses = {HomeController.class})
-public class AppWebConfig {
+@EnableWebMvc
+@Configuration
+@ComponentScan(basePackageClasses = {TestController.class})
+public class AppWebConfig extends WebMvcConfigurerAdapter {
 	
 	/**
 	 * Registrando um viewResolver para tratar o caminho das nossos páginas
@@ -28,5 +32,13 @@ public class AppWebConfig {
 		
 		return resolver;
 	}
-
+	
+	/**
+	 * 
+	 */
+	@Override
+	public void addResourceHandlers(ResourceHandlerRegistry registry) {
+		registry.addResourceHandler("/resources/**").addResourceLocations("/resources/").setCachePeriod(0);
+	}
+	
 }
