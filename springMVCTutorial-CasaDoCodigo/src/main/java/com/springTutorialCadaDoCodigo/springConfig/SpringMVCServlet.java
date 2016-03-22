@@ -21,7 +21,7 @@ public class SpringMVCServlet extends AbstractAnnotationConfigDispatcherServletI
 	 * */
 	@Override
 	protected Class<?>[] getServletConfigClasses() {
-		return new Class[] {AppWebConfig.class};
+		return new Class[] {AppWebConfig.class, JPAConfig.class};
 	}
 
 	// Aqui estamos mapeando a servlet do Spring de forma programática (sem xml)

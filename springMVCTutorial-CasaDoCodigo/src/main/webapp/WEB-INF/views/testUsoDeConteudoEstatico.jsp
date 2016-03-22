@@ -5,7 +5,7 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>Test recurso estático</title>
-		<script type="text/javascript" src="../resources/javascript/test.js"></script>
+		<script type="text/javascript" src="../resources/js/test.js"></script>
 		<link href="../resources/css/test.css" rel="stylesheet"/>
 	</head>
 	<body>

@@ -1,0 +1,1 @@
+alert("teste uso recursos estáticos com spring 4");

@@ -8,16 +8,21 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
+import com.springTutorialCadaDoCodigo.controller.IndexController;
+import com.springTutorialCadaDoCodigo.controller.ProdutoController;
 import com.springTutorialCadaDoCodigo.controller.TestController;
+import com.springTutorialCadaDoCodigo.dao.ProdutoDAO;
 
 /**
- * Nessa classe iremos registrar todos os nossos controllers
+ * Nessa classe iremos registrar todos os nossos controllers e classe que serão
+ * gerenciadas pelo container do Spring.
+ * 
  * @author Edney Roldao
  *
  */
 @EnableWebMvc
 @Configuration
-@ComponentScan(basePackageClasses = {TestController.class})
+@ComponentScan(basePackageClasses = {TestController.class, IndexController.class, ProdutoController.class, ProdutoDAO.class})
 public class AppWebConfig extends WebMvcConfigurerAdapter {
 	
 	/**
@@ -34,7 +39,8 @@ public class AppWebConfig extends WebMvcConfigurerAdapter {
 	}
 	
 	/**
-	 * 
+	 * Aqui estamos avisando para o Spring que precisamos ter acesso a conteúdos estáticos
+	 * como arquivos js, css e img.
 	 */
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {

@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	Welcome spring project.
+	Seja bem vindo ao meu Tutorial sobre Spring MVC.
 </body>
 </html>
