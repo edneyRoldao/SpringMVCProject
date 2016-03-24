@@ -1,7 +1,10 @@
 package com.springTutorialCadaDoCodigo.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,6 +18,7 @@ public class Produto implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
@@ -26,9 +30,16 @@ public class Produto implements Serializable {
 
 	private int paginas;
 
-	@Override
-	public String toString() {
-		return "Produto [id=" + id + ", titulo=" + titulo + ", descricao=" + descricao + ", paginas=" + paginas + "]";
+	@ElementCollection
+	private List<Preco> precos = new ArrayList<>();
+
+	
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	public String getTitulo() {
@@ -55,12 +66,12 @@ public class Produto implements Serializable {
 		this.paginas = paginas;
 	}
 
-	public Integer getId() {
-		return id;
+	public List<Preco> getPrecos() {
+		return precos;
 	}
-	
-	public void setId(Integer id) {
-		this.id = id;
+
+	public void setPrecos(List<Preco> precos) {
+		this.precos = precos;
 	}
 
 }

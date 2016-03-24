@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>
@@ -25,6 +25,13 @@
 		
 		<div class="container" style="margin-top: 70px">
 			<form method="post" action="/springTutorialCasaDoCodigo/produtos">
+				<c:forEach items="${tipos}" var="tipoProduto" varStatus="status">
+					<div>
+						<label for="preco_${tipoProduto}">${tipoProduto}</label>
+						<input id="preco_${tipoProduto}" type="text" name="precos[${status.index}].valor">
+						<input type="hidden" name="precos[${status.index}].tipoProduto" value="${tipoProduto}">
+					</div>
+				</c:forEach>
 				<div class="form-group">
 					<label for="element-1" class="sr-only">Título</label>
 					<input type="text" name="titulo" id="element-1" class="form-control" placeholder="insira o nome do livro">
