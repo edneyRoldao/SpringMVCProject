@@ -3,7 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>
-		<title>Home</title>
+		<title>Lista de Produtos (livros)</title>
 		
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		
@@ -16,15 +16,43 @@
 		<header>
 			<div class="jumbotron">
 				<div class="container">
-					<h2>Seja Bem ao Tutorial de Spring MVC 4</h2>
-					<h6>Este projeto é todo escrito em Spring, além disso, ele não contém arquivos xml. É tudo programático.<br/>
-						Este projeto é uma versão melhorada do apresentado pelo livro sobre spring MVC da casa do código pois eu<br/>
-						apliquei Bootstrap em todo o frontEnd.						
-					</h6>
+					<h2>Listagem de Livros</h2>
+					<h6>Tutorial Spring MVC 4 - livro casa do código</h6>
 				</div>
 			</div>
 		</header>
 		
+		<div class="novoBtn">
+	        <a href="/springTutorialCasaDoCodigo/produto/cadastro" class="btn btn-info btn-md">Novo Produto</a>
+		</div>
+		<div class="alertaSucesso alert alert-success">
+			<strong>${sucesso}</strong>
+		</div>
+
+		<div class="container">
+			<div class="well">
+				<table class="table table-striped">
+					<tr>
+						<th>Titulo</th>
+						<th>descrição</th>
+						<th>valor</th>
+					</tr>
+					<c:forEach items="${produtos}" var="produto">
+						<tr>
+							<td>${produto.titulo}</td>
+							<td>${produto.descricao}</td>
+							<td>
+								<c:forEach items="${produto.precos}" var="preco">
+									<strong>${preco.tipoProduto}</strong>: ${preco.valor}
+									&#160;&#160;
+								</c:forEach>
+							</td>
+						</tr>
+					</c:forEach>
+				</table>
+			</div>
+		</div>
+	
 		<footer class="footer" style="margin-top: 10px">
 			<p>
 				© 2016 - Developed by Edney Roldão &#160;&#160;

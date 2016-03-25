@@ -45,7 +45,7 @@ public class JPAConfig {
 		dmds.setDriverClassName("com.mysql.jdbc.Driver");
 		dmds.setUrl("jdbc:mysql://localhost/spring_mvc_tutorial");
 		dmds.setUsername("root");
-		dmds.setPassword("conam");
+		dmds.setPassword("edney");
 		
 		return dmds;
 	}

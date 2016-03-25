@@ -18,4 +18,8 @@ public class ProdutoDAO {
 		em.persist(produto);
 	}
 
+	public Object listarTodos() {
+		return em.createQuery("select distinct(p) from Produto p join fetch p.precos", Produto.class).getResultList();
+	}
+
 }

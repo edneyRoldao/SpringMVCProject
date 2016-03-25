@@ -3,7 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>
-		<title>Cadastro de Produto</title>
+		<title>Cadastro de Produto (livros)</title>
 		
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		
@@ -13,7 +13,6 @@
 	    <link href="../resources/css/springTutorial.css" rel="stylesheet"/>
 	</head>
 	<body>
-	
 		<header>
 			<div class="jumbotron">
 				<div class="container">
@@ -23,15 +22,12 @@
 			</div>
 		</header>
 		
-		<div class="container" style="margin-top: 70px">
-			<form method="post" action="/springTutorialCasaDoCodigo/produtos">
-				<c:forEach items="${tipos}" var="tipoProduto" varStatus="status">
-					<div>
-						<label for="preco_${tipoProduto}">${tipoProduto}</label>
-						<input id="preco_${tipoProduto}" type="text" name="precos[${status.index}].valor">
-						<input type="hidden" name="precos[${status.index}].tipoProduto" value="${tipoProduto}">
-					</div>
-				</c:forEach>
+		<div class="novoBtn">
+	        <a href="/springTutorialCasaDoCodigo/produto/lista" class="btn btn-info btn-sm">Listar Produtos</a>
+		</div>
+		
+		<div class="container" style="margin-top: 10px">
+			<form method="post" action="/springTutorialCasaDoCodigo/produto/lista">
 				<div class="form-group">
 					<label for="element-1" class="sr-only">Título</label>
 					<input type="text" name="titulo" id="element-1" class="form-control" placeholder="insira o nome do livro">
@@ -47,13 +43,20 @@
 					<input type="text" name="paginas" id="element-4" class="form-control" placeholder="coloque o número de páginas">
 					<span class="glyphicon glyphicon-ok form-control-feedback"></span>
 				</div>
+				<br/>
+				<h4>Preço para cada tipo de livro</h4>
+				<c:forEach items="${tipos}" var="tipoProduto" varStatus="status">
+					<div class="form-group">
+						<input id="preco_${tipoProduto}" type="text" name="precos[${status.index}].valor" class="form-control" placeholder="${tipoProduto}">
+						<input type="hidden" name="precos[${status.index}].tipoProduto" value="${tipoProduto}">
+					</div>
+				</c:forEach>
 				<div class="form-group" style="margin-top: 35px">
 					<input type="submit" class="btn btn-primary" value="Cadastrar"/>
 				</div>
 			</form>
 		</div>		
-		
-		<footer class="footer" style="margin-top: 300px">
+		<footer class="footer" style="margin-top: 10px">
 			<p>
 				© 2016 - Developed by Edney Roldão &#160;&#160;
 				<img src="../resources/img/avatar.jpg"/>
