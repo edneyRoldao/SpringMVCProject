@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -23,24 +25,27 @@
 		</header>
 		
 		<div class="novoBtn">
-	        <a href="/springTutorialCasaDoCodigo/produto/lista" class="btn btn-info btn-sm">Listar Produtos</a>
+	        <a href="/springTutorialCasaDoCodigo/produto/lista" class="btn btn-primary btn-sm">Listar Produtos</a>
 		</div>
 		
 		<div class="container" style="margin-top: 10px">
-			<form method="post" action="/springTutorialCasaDoCodigo/produto/lista">
+			<form:form method="post" action="/springTutorialCasaDoCodigo/produto/lista" commandName="produto" >
 				<div class="form-group">
+					<form:errors path="titulo"/>
 					<label for="element-1" class="sr-only">Título</label>
-					<input type="text" name="titulo" id="element-1" class="form-control" placeholder="insira o nome do livro">
+					<form:input path="titulo" id="element-1" class="form-control" placeholder="insira o nome do livro"/>
 					<span class="glyphicon glyphicon-remove form-control-feedback"></span>
 				</div>
 				<div class="form-group">
+					<form:errors path="descricao"/>
 					<label for="element-2" class="sr-only">Descrição</label>
-					<input type="text" name="descricao" id="element-4" class="form-control" placeholder="insira a descrição do livro">
+					<form:input path="descricao" id="element-2" class="form-control" placeholder="insira a descrição do livro"/>
 					<span class="glyphicon glyphicon-ok form-control-feedback"></span>
 				</div>
 				<div class="form-group">
-					<label for="element-4" class="sr-only">Número de páginas</label>
-					<input type="text" name="paginas" id="element-4" class="form-control" placeholder="coloque o número de páginas">
+					<form:errors path="paginas"/>
+					<label for="element-3" class="sr-only">Número de páginas</label>
+					<form:input path="paginas" id="element-3" class="form-control" placeholder="coloque o número de páginas"/>
 					<span class="glyphicon glyphicon-ok form-control-feedback"></span>
 				</div>
 				<br/>
@@ -54,7 +59,7 @@
 				<div class="form-group" style="margin-top: 35px">
 					<input type="submit" class="btn btn-primary" value="Cadastrar"/>
 				</div>
-			</form>
+			</form:form>
 		</div>		
 		<footer class="footer" style="margin-top: 10px">
 			<p>

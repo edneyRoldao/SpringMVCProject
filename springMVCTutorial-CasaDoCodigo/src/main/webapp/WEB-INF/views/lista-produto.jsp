@@ -21,11 +21,15 @@
 				</div>
 			</div>
 		</header>
-		
+		<div class="novoBtn">
+			<a class="btn btn-success" href="/springTutorialCasaDoCodigo/">
+				HOME
+			</a>
+		</div>
 		<div class="novoBtn">
 	        <a href="/springTutorialCasaDoCodigo/produto/cadastro" class="btn btn-info btn-md">Novo Produto</a>
 		</div>
-		<div class="alertaSucesso alert alert-success">
+		<div class="${sucesso != null ? 'showSuccess' : 'hideSuccess'} alert alert-success">
 			<strong>${sucesso}</strong>
 		</div>
 

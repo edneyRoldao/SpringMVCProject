@@ -10,12 +10,22 @@
 	height: 25px;
 }
 
-.alertaSucesso {
+.novoBtn {
+	margin-left: 230px;
+	margin-bottom: 20px;
+}
+
+.showSuccess {
+	display: block;
 	margin-left: 230px;
 	margin-right: 230px;
 }
 
-.novoBtn {
-	margin-left: 230px;
-	margin-bottom: 20px;
+.hideSuccess {
+	display: none;
+}
+
+.indexBtn {
+	float: left;
+	margin-right: 50px;
 }

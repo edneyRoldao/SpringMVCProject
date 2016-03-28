@@ -9,8 +9,8 @@
 		
 	    <!-- Bootstrap -->
 	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"/>
-	    <link href="../resources/css/bootstrap.min.css" rel="stylesheet"/>
-	    <link href="../resources/css/springTutorial.css" rel="stylesheet"/>
+	    <link href="resources/css/bootstrap.min.css" rel="stylesheet"/>
+	    <link href="resources/css/springTutorial.css" rel="stylesheet"/>
 	</head>
 	<body>
 		<header>
@@ -25,16 +25,30 @@
 			</div>
 		</header>
 		
+		<div class="container">
+			<div class="indexBtn">
+				<a class="btn btn-primary" href="/springTutorialCasaDoCodigo/produto/lista">
+					Pesquisar Produtos
+				</a>
+			</div>
+			
+			<div >
+				<a class="btn btn-primary" href="/springTutorialCasaDoCodigo/produto/cadastro">
+					Cadastrar Produtos
+				</a>
+			</div>
+		</div>
+		
 		<footer class="footer" style="margin-top: 10px">
 			<p>
 				© 2016 - Developed by Edney Roldão &#160;&#160;
-				<img src="../resources/img/avatar.jpg"/>
+				<img src="resources/img/avatar.jpg"/>
 			</p>
 		</footer>
 		
 		<!-- Bootstrap and JQuery JAVASCRIPT -->
 		<!-- Include all compiled plugins (below), or include individual files as needed -->
-		<script src="../resources/js/jquery-1.11.3.min.js"></script>
-		<script src="../resources/js/bootstrap.min.js"></script>
+		<script src="resources/js/jquery-1.11.3.min.js"></script>
+		<script src="resources/js/bootstrap.min.js"></script>
 	</body>
 </html>

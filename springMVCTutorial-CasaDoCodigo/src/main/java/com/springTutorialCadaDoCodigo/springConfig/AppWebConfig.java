@@ -1,8 +1,10 @@
 package com.springTutorialCadaDoCodigo.springConfig;
 
+import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
@@ -45,6 +47,17 @@ public class AppWebConfig extends WebMvcConfigurerAdapter {
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 		registry.addResourceHandler("/resources/**").addResourceLocations("/resources/").setCachePeriod(0);
+	}
+	
+	@Bean(name = "messageSource")
+	public MessageSource carregarMensagensDeErroPeloContextoDoString() {
+		
+		ReloadableResourceBundleMessageSource bundle = new ReloadableResourceBundleMessageSource();
+		bundle.setBasename("/WEB-INF/messages");
+		bundle.setDefaultEncoding("UTF-8");
+		bundle.setCacheSeconds(1);
+		
+		return bundle;
 	}
 	
 }

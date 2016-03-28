@@ -8,6 +8,8 @@ import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatche
  *
  */
 public class SpringMVCServlet extends AbstractAnnotationConfigDispatcherServletInitializer{
+	
+	private static final String[] URL_MAPPING = {"/", "*.html", "*.htm", "*.json", "*.xml"};
 
 	@Override
 	protected Class<?>[] getRootConfigClasses() {
@@ -27,7 +29,7 @@ public class SpringMVCServlet extends AbstractAnnotationConfigDispatcherServletI
 	// Aqui estamos mapeando a servlet do Spring de forma programática (sem xml)
 	@Override
 	protected String[] getServletMappings() {
-		return new String[] {"/"};
+		return URL_MAPPING;
 	}
 
 }
