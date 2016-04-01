@@ -9,6 +9,8 @@ import org.springframework.format.datetime.DateFormatter;
 import org.springframework.format.datetime.DateFormatterRegistrar;
 import org.springframework.format.support.DefaultFormattingConversionService;
 import org.springframework.format.support.FormattingConversionService;
+import org.springframework.web.multipart.MultipartResolver;
+import org.springframework.web.multipart.support.StandardServletMultipartResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
@@ -18,6 +20,7 @@ import com.springTutorialCadaDoCodigo.controller.IndexController;
 import com.springTutorialCadaDoCodigo.controller.ProdutoController;
 import com.springTutorialCadaDoCodigo.controller.TestController;
 import com.springTutorialCadaDoCodigo.dao.ProdutoDAO;
+import com.springTutorialCadaDoCodigo.util.FileSaver;
 
 /**
  * Nessa classe iremos registrar todos os nossos controllers e classe que serão
@@ -28,7 +31,7 @@ import com.springTutorialCadaDoCodigo.dao.ProdutoDAO;
  */
 @EnableWebMvc
 @Configuration
-@ComponentScan(basePackageClasses = {TestController.class, IndexController.class, ProdutoController.class, ProdutoDAO.class})
+@ComponentScan(basePackageClasses = {TestController.class, IndexController.class, ProdutoController.class, ProdutoDAO.class, FileSaver.class})
 public class AppWebConfig extends WebMvcConfigurerAdapter {
 	
 	/**
@@ -76,32 +79,9 @@ public class AppWebConfig extends WebMvcConfigurerAdapter {
 		return conversionService;
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	@Bean
+	public MultipartResolver multipartResolver() {
+		return new StandardServletMultipartResolver();
+	}
 	
 }

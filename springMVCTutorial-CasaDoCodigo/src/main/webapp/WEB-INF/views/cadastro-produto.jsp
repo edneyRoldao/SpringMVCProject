@@ -29,7 +29,7 @@
 		</div>
 		
 		<div class="container" style="margin-top: 10px">
-			<form:form method="post" action="/springTutorialCasaDoCodigo/produto/lista" commandName="produto" >
+			<form:form method="post" action="/springTutorialCasaDoCodigo/produto/lista" commandName="produto" enctype="multipart/form-data">
 				<div class="form-group">
 					<form:errors path="titulo" cssClass="errorMessages"/>
 					<label for="element-1" class="sr-only">Título</label>
@@ -48,10 +48,17 @@
 					<form:input path="paginas" id="element-3" class="form-control" placeholder="coloque o número de páginas"/>
 					<span class="glyphicon glyphicon-ok form-control-feedback"></span>
 				</div>
+				
 				<div class="form-group">
 					<form:errors path="dataLancamento" cssClass="errorMessages"/>
 					<label for="element-3" class="sr-only">Número de páginas</label>
 					<form:input type="date" path="dataLancamento" id="element-3" class="form-control" placeholder="coloque a data de lançamento"/>
+					<span class="glyphicon glyphicon-ok form-control-feedback"></span>
+				</div>
+				<div class="form-group">
+					<form:errors path="caminhoResumo" cssClass="errorMessages"/>
+					<label for="element-3" class="sr-only">Resumo</label>
+					<input type="file" name="resumo" id="element-3" class="form-control" placeholder="Adicione o arquivo com o resumo"/>
 					<span class="glyphicon glyphicon-ok form-control-feedback"></span>
 				</div>
 				<br/>

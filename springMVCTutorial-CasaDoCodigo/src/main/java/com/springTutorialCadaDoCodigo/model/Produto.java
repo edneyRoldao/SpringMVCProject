@@ -41,10 +41,12 @@ public class Produto implements Serializable {
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private Calendar dataLancamento;
 
+	private String caminhoResumo;
+
 	@ElementCollection
 	private List<Preco> precos = new ArrayList<>();
-	
-	
+
+
 	//Getters and Setters
 	public Integer getId() {
 		return id;
@@ -84,6 +86,14 @@ public class Produto implements Serializable {
 
 	public void setDataLancamento(Calendar dataLancamento) {
 		this.dataLancamento = dataLancamento;
+	}
+
+	public String getCaminhoResumo() {
+		return caminhoResumo;
+	}
+
+	public void setCaminhoResumo(String caminhoResumo) {
+		this.caminhoResumo = caminhoResumo;
 	}
 
 	public List<Preco> getPrecos() {

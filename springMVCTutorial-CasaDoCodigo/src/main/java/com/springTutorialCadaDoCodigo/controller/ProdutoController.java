@@ -8,12 +8,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.springTutorialCadaDoCodigo.dao.ProdutoDAO;
 import com.springTutorialCadaDoCodigo.enuns.TipoProduto;
 import com.springTutorialCadaDoCodigo.model.Produto;
+import com.springTutorialCadaDoCodigo.util.FileSaver;
 
 @Controller
 @Transactional
@@ -21,7 +23,10 @@ import com.springTutorialCadaDoCodigo.model.Produto;
 public class ProdutoController {
 
 	@Autowired
-	ProdutoDAO produtoDAO;
+	private ProdutoDAO produtoDAO;
+	
+	@Autowired
+	private FileSaver fileSaver;
 
 	/*	
 	 	O código abaixo foi comentado pois não iremos usar validadores customizados. 
@@ -44,11 +49,16 @@ public class ProdutoController {
 	}
 
 	@RequestMapping(value = "/lista", method = RequestMethod.POST, name = "cadastroProduto")
-	public ModelAndView cadastrar(@Valid Produto produto, BindingResult bindResult, RedirectAttributes redirect) {
-
+	public ModelAndView cadastrar(MultipartFile resumo, @Valid Produto produto, BindingResult bindResult, RedirectAttributes redirect) {
+		
 		if (bindResult.hasErrors())
 			return callForm(produto);
 
+		String webPath = fileSaver.write("uploaded-images", resumo);
+		produto.setCaminhoResumo(webPath);
+		
+		// <img src="${product.summaryPath}"/>
+		
 		produtoDAO.cadastrar(produto);
 		redirect.addFlashAttribute("sucesso", "Produto cadastrado com sucesso !");
 
