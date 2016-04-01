@@ -31,21 +31,27 @@
 		<div class="container" style="margin-top: 10px">
 			<form:form method="post" action="/springTutorialCasaDoCodigo/produto/lista" commandName="produto" >
 				<div class="form-group">
-					<form:errors path="titulo"/>
+					<form:errors path="titulo" cssClass="errorMessages"/>
 					<label for="element-1" class="sr-only">Título</label>
 					<form:input path="titulo" id="element-1" class="form-control" placeholder="insira o nome do livro"/>
 					<span class="glyphicon glyphicon-remove form-control-feedback"></span>
 				</div>
 				<div class="form-group">
-					<form:errors path="descricao"/>
+					<form:errors path="descricao" cssClass="errorMessages"/>
 					<label for="element-2" class="sr-only">Descrição</label>
 					<form:input path="descricao" id="element-2" class="form-control" placeholder="insira a descrição do livro"/>
 					<span class="glyphicon glyphicon-ok form-control-feedback"></span>
 				</div>
 				<div class="form-group">
-					<form:errors path="paginas"/>
+					<form:errors path="paginas" cssClass="errorMessages"/>
 					<label for="element-3" class="sr-only">Número de páginas</label>
 					<form:input path="paginas" id="element-3" class="form-control" placeholder="coloque o número de páginas"/>
+					<span class="glyphicon glyphicon-ok form-control-feedback"></span>
+				</div>
+				<div class="form-group">
+					<form:errors path="dataLancamento" cssClass="errorMessages"/>
+					<label for="element-3" class="sr-only">Número de páginas</label>
+					<form:input type="date" path="dataLancamento" id="element-3" class="form-control" placeholder="coloque a data de lançamento"/>
 					<span class="glyphicon glyphicon-ok form-control-feedback"></span>
 				</div>
 				<br/>

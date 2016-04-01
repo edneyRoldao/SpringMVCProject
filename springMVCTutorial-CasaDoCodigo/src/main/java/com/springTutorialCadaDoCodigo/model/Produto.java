@@ -2,6 +2,7 @@ package com.springTutorialCadaDoCodigo.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import javax.persistence.ElementCollection;
@@ -11,6 +12,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.Table;
+import javax.validation.constraints.Min;
+
+import org.hibernate.validator.constraints.NotBlank;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name = "TB_PRODUTO")
@@ -23,17 +28,24 @@ public class Produto implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
+	@NotBlank
 	private String titulo;
 
 	@Lob
+	@NotBlank
 	private String descricao;
 
+	@Min(30)
 	private int paginas;
+
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
+	private Calendar dataLancamento;
 
 	@ElementCollection
 	private List<Preco> precos = new ArrayList<>();
-
 	
+	
+	//Getters and Setters
 	public Integer getId() {
 		return id;
 	}
@@ -64,6 +76,14 @@ public class Produto implements Serializable {
 
 	public void setPaginas(int paginas) {
 		this.paginas = paginas;
+	}
+
+	public Calendar getDataLancamento() {
+		return dataLancamento;
+	}
+
+	public void setDataLancamento(Calendar dataLancamento) {
+		this.dataLancamento = dataLancamento;
 	}
 
 	public List<Preco> getPrecos() {

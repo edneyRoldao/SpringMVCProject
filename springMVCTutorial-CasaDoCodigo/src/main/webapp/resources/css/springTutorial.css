@@ -11,14 +11,15 @@
 }
 
 .novoBtn {
-	margin-left: 230px;
+	margin-left: 390px;
 	margin-bottom: 20px;
 }
 
 .showSuccess {
 	display: block;
-	margin-left: 230px;
+	margin-left: 390px;
 	margin-right: 230px;
+	width: 400px;
 }
 
 .hideSuccess {
@@ -28,4 +29,9 @@
 .indexBtn {
 	float: left;
 	margin-right: 50px;
+}
+
+.errorMessages {
+	color: red;
+	font-weight: bold;
 }
