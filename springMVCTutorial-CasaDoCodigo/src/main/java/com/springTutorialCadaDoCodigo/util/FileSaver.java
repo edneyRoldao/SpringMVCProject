@@ -16,11 +16,10 @@ public class FileSaver {
 	private HttpServletRequest request;
 
 	public String write(String baseFolder, MultipartFile file) {
+		
 		String realPath = request.getServletContext().getRealPath("/" + baseFolder);
-
 		try {
-
-			String path = realPath + "/" + file.getOriginalFilename();
+			String path = realPath + "\\" + file.getOriginalFilename();
 			file.transferTo(new File(path));
 			return baseFolder + "/" + file.getOriginalFilename();
 

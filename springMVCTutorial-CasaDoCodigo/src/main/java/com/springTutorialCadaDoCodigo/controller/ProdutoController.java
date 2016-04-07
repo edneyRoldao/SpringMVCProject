@@ -54,10 +54,8 @@ public class ProdutoController {
 		if (bindResult.hasErrors())
 			return callForm(produto);
 
-		String webPath = fileSaver.write("uploaded-images", resumo);
-		produto.setCaminhoResumo(webPath);
-		
-		// <img src="${product.summaryPath}"/>
+		String path = saveFileUploaded(resumo);
+		produto.setCaminhoResumo(path);
 		
 		produtoDAO.cadastrar(produto);
 		redirect.addFlashAttribute("sucesso", "Produto cadastrado com sucesso !");
@@ -73,6 +71,13 @@ public class ProdutoController {
 		model.addObject("produtos", produtoDAO.listarTodos());
 
 		return model;
+	}
+	
+	private String saveFileUploaded(MultipartFile resumo) {
+		final String PATH = "resources\\img\\uploadedFiles";
+		String webPath = fileSaver.write(PATH, resumo);
+		// path to retrieve the file and use from html or jps file <img src="${product.summaryPath}"/>
+		return webPath;
 	}
 
 }

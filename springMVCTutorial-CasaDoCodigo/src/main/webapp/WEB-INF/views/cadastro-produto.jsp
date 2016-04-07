@@ -48,11 +48,10 @@
 					<form:input path="paginas" id="element-3" class="form-control" placeholder="coloque o número de páginas"/>
 					<span class="glyphicon glyphicon-ok form-control-feedback"></span>
 				</div>
-				
 				<div class="form-group">
 					<form:errors path="dataLancamento" cssClass="errorMessages"/>
-					<label for="element-3" class="sr-only">Número de páginas</label>
-					<form:input type="date" path="dataLancamento" id="element-3" class="form-control" placeholder="coloque a data de lançamento"/>
+					<label for="element-3" class="sr-only">Data de Lançameto</label>
+					<form:input type="date" path="dataLancamento" id="element-3" class="form-control" placeholder="informe a data de lançamento"/>
 					<span class="glyphicon glyphicon-ok form-control-feedback"></span>
 				</div>
 				<div class="form-group">
@@ -65,7 +64,8 @@
 				<h4>Preço para cada tipo de livro</h4>
 				<c:forEach items="${tipos}" var="tipoProduto" varStatus="status">
 					<div class="form-group">
-						<input id="preco_${tipoProduto}" type="text" name="precos[${status.index}].valor" class="form-control" placeholder="${tipoProduto}">
+						<form:errors path="precos[${status.index}].valor" cssClass="errorMessages"/>
+						<form:input path="precos[${status.index}].valor" id="preco_${tipoProduto}" type="text" name="precos[${status.index}].valor" class="form-control" placeholder="${tipoProduto}"/>
 						<input type="hidden" name="precos[${status.index}].tipoProduto" value="${tipoProduto}">
 					</div>
 				</c:forEach>
