@@ -54,11 +54,13 @@
 					<form:input type="date" path="dataLancamento" id="element-3" class="form-control" placeholder="informe a data de lançamento"/>
 					<span class="glyphicon glyphicon-ok form-control-feedback"></span>
 				</div>
-				<div class="form-group">
-					<form:errors path="caminhoResumo" cssClass="errorMessages"/>
-					<label for="element-3" class="sr-only">Resumo</label>
-					<input type="file" name="resumo" id="element-3" class="form-control" placeholder="Adicione o arquivo com o resumo"/>
-					<span class="glyphicon glyphicon-ok form-control-feedback"></span>
+				<div style="position:relative;">
+					<a class='btn btn-primary' href='javascript:;'>
+					    Choose File...
+					    <input type="file" name="resumo" class="btn-file" size="40"  onchange='$("#upload-file-info").html($(this).val());'>
+					</a>
+					&nbsp;
+					<span class='label label-info' id="upload-file-info"></span>
 				</div>
 				<br/>
 				<h4>Preço para cada tipo de livro</h4>

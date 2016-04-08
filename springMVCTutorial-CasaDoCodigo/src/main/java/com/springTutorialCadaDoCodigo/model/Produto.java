@@ -13,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.Table;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -39,11 +40,13 @@ public class Produto implements Serializable {
 	private int paginas;
 
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
+	@NotNull(message = "esta campo é obrigatório, seu formato é dd/MM/yyyy")
 	private Calendar dataLancamento;
 
 	private String caminhoResumo;
 
 	@ElementCollection
+	@NotNull
 	private List<Preco> precos = new ArrayList<>();
 
 

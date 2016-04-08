@@ -54,8 +54,10 @@ public class ProdutoController {
 		if (bindResult.hasErrors())
 			return callForm(produto);
 
-		String path = saveFileUploaded(resumo);
-		produto.setCaminhoResumo(path);
+		if(!resumo.isEmpty()) {
+			String path = saveFileUploaded(resumo);
+			produto.setCaminhoResumo(path);
+		}
 		
 		produtoDAO.cadastrar(produto);
 		redirect.addFlashAttribute("sucesso", "Produto cadastrado com sucesso !");

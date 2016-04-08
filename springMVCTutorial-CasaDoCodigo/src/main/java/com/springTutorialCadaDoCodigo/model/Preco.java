@@ -5,8 +5,7 @@ import java.math.BigDecimal;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
-
-import org.hibernate.validator.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import com.springTutorialCadaDoCodigo.enuns.TipoProduto;
 
@@ -16,7 +15,7 @@ public class Preco implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Column(scale = 2)
-	@NotBlank(message = "Valor informar o valor")
+	@NotNull(message = "Valor informar o valor")
 	private BigDecimal valor;
 
 	private TipoProduto tipoProduto;
