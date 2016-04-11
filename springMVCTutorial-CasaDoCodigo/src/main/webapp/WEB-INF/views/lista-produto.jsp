@@ -38,7 +38,7 @@
 				<table class="table table-striped">
 					<tr>
 						<th>Titulo</th>
-						<th>descrição</th>
+						<th>subtitulo</th>
 						<th>Lançamento</th>
 						<th>valores</th>
 						<th>Ações</th>
@@ -46,7 +46,7 @@
 					<c:forEach items="${produtos}" var="produto">
 						<tr>
 							<td>${produto.titulo}</td>
-							<td>${produto.descricao}</td>
+							<td>${produto.subtitulo}</td>
 							<td>
 								<fmt:formatDate pattern="MM/dd/yyyy" value="${produto.dataLancamento.time}" />
 							</td>

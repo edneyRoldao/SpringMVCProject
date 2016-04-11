@@ -25,13 +25,14 @@ public class Produto implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
 	@NotBlank
 	private String titulo;
+
+	private String subtitulo;
 
 	@Lob
 	@NotBlank
@@ -49,8 +50,7 @@ public class Produto implements Serializable {
 	@ElementCollection(fetch = FetchType.EAGER)
 	private List<Preco> precos = new ArrayList<>();
 
-
-	//Getters and Setters
+	// Getters and Setters
 	public Integer getId() {
 		return id;
 	}
@@ -65,6 +65,14 @@ public class Produto implements Serializable {
 
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
+	}
+
+	public String getSubtitulo() {
+		return subtitulo;
+	}
+
+	public void setSubtitulo(String subtitulo) {
+		this.subtitulo = subtitulo;
 	}
 
 	public String getDescricao() {

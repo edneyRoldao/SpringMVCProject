@@ -37,21 +37,27 @@
 					<span class="glyphicon glyphicon-remove form-control-feedback"></span>
 				</div>
 				<div class="form-group">
+					<form:errors path="subtitulo" cssClass="errorMessages"/>
+					<label for="element-2" class="sr-only">Subtitulo</label>
+					<form:input path="subtitulo" id="element-2" class="form-control" placeholder="insira o Subtitulo"/>
+					<span class="glyphicon glyphicon-remove form-control-feedback"></span>
+				</div>
+				<div class="form-group">
 					<form:errors path="descricao" cssClass="errorMessages"/>
-					<label for="element-2" class="sr-only">Descrição</label>
-					<form:input path="descricao" id="element-2" class="form-control" placeholder="insira a descrição do livro"/>
+					<label for="element-3" class="sr-only">Resumo</label>
+					<form:textarea path="descricao" id="element-3" class="form-control" placeholder="Informe a resenha do livro"/>
 					<span class="glyphicon glyphicon-ok form-control-feedback"></span>
 				</div>
 				<div class="form-group">
 					<form:errors path="paginas" cssClass="errorMessages"/>
-					<label for="element-3" class="sr-only">Número de páginas</label>
-					<form:input path="paginas" id="element-3" class="form-control" placeholder="coloque o número de páginas"/>
+					<label for="element-4" class="sr-only">Número de páginas</label>
+					<form:input path="paginas" id="element-4" class="form-control" placeholder="coloque o número de páginas"/>
 					<span class="glyphicon glyphicon-ok form-control-feedback"></span>
 				</div>
 				<div class="form-group">
 					<form:errors path="dataLancamento" cssClass="errorMessages"/>
-					<label for="element-3" class="sr-only">Data de Lançameto</label>
-					<form:input type="date" path="dataLancamento" id="element-3" class="form-control" placeholder="informe a data de lançamento"/>
+					<label for="element-5" class="sr-only">Data de Lançameto</label>
+					<form:input type="date" path="dataLancamento" id="element-5" class="form-control" placeholder="informe a data de lançamento"/>
 					<span class="glyphicon glyphicon-ok form-control-feedback"></span>
 				</div>
 				<div style="position:relative;">

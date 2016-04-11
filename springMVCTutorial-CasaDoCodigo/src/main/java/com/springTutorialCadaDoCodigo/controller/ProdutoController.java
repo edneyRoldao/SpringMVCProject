@@ -57,6 +57,7 @@ public class ProdutoController {
 
 		if(!resumo.isEmpty()) {
 			String path = saveFileUploaded(resumo);
+			
 			produto.setCaminhoResumo(path);
 		}
 		
@@ -89,8 +90,7 @@ public class ProdutoController {
 	}
 	
 	private String saveFileUploaded(MultipartFile resumo) {
-		final String PATH = "resources\\img\\uploadedFiles";
-		String webPath = fileSaver.write(PATH, resumo);
+		String webPath = "/" + fileSaver.write("resources/img", resumo);
 		// path to retrieve the file and use from html or jps file <img src="${product.summaryPath}"/>
 		return webPath;
 	}

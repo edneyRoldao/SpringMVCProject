@@ -48,3 +48,39 @@
 	color:transparent;
 }
 
+.btnValores {
+	margin-top: 15px;
+	height: 80px;
+	background-color: gray;
+}
+
+.radioValores {
+	margin-top: 10px;
+}
+
+.radioValores2 {
+	height: 60px;
+}
+
+.radioValores3 {
+	margin-top: -15px;
+}
+
+.radioValores4 {
+	margin-top: 15px;
+}
+
+.radioValores4 input {
+	width: 160px;
+	height: 50px;
+	font-weight: bold;
+	font-size: 20px;
+}
+
+
+
+
+
+
+
+

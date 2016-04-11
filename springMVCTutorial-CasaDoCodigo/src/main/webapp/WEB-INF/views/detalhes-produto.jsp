@@ -54,9 +54,10 @@
 	        <!-- Book Title -->
 	        <div class="row">
 	            <div class="col-lg-12">
-	                <h1 class="page-header">
-	                	${produto.titulo}
-	                </h1>
+	                <h1 class="page-header"> ${produto.titulo} </h1>
+	                <h5>
+	                	<strong>${produto.subtitulo}</strong>
+	                </h5>
 	            </div>
 	        </div>
 	        <!-- /.row -->
@@ -64,7 +65,7 @@
 			<!-- Item Row -->
 	        <div class="row">
 	            <div class="col-xs-3 col-md-4">
-					<img src="${produto.caminhoResumo}" class="img-responsive" alt="imagem do produto">
+					<img src='<spring:url value="${produto.caminhoResumo}"/>' class="img-responsive" alt="${produto.caminhoResumo}">
 	            </div>
 	            <div class="col-md-4">
 	                <h3>Resumo</h3>
@@ -72,38 +73,27 @@
 	            </div>
 	        </div>
 	        <!-- /.row -->
-	        
-			<!-- Preços -->
-			<div class="row">
-				<div class="col-lg-12">
-					<h3>Nossos Preços</h3>
-				</div>
-			</div>
-			<!-- /.row -->
 			
 			<!-- Lista de Preços -->
-			<div class="row text-center">
+			<div class="btnValores row text-center">
 				<form action='<c:url value="/produto/carrinho" />' method="post" >
 					<input type="hidden" value="${produto.id}">
 					<c:forEach items="${produto.precos}" var="preco">
-						<div class="col-md-3 col-sm-6 hero-feature">
-							<div class="thumbnail">
-								<div class="caption">
-									<h3> ${preco.tipoProduto} </h3>
-								</div>
-								<div class="btn-group" data-toggle="buttons">
-									<label class="btn">
-										<input type="radio" name='gender2' id="${produto.id}-${preco.tipoProduto}" value="${preco.tipoProduto}">
-											<i class="fa fa-circle-o fa-2x"></i>
-											<i class="fa fa-check-circle-o fa-2x"></i>
-											<span> ${preco.valor} </span>
-									</label>
+						<div class="radioValores col-md-3 hero-feature">
+							<div class="radioValores2 thumbnail">
+								<div class="radioValores3 caption">
+									<h4>
+										<input type="radio" id="${produto.id}-${preco.tipoProduto}" value="${preco.tipoProduto}" />
+										&#160;
+										<strong>${preco.tipoProduto}</strong>
+									</h4>
+									<h6> R$ ${preco.valor} </h6>
 								</div>
 							</div>
 						</div>
 					</c:forEach>
-					<div class="novoBtn">
-				        <input type="submit" class="btn btn-info btn-xl" value="Comprar"/>
+					<div class="radioValores4 col-md-3 hero-feature">
+				        <input type="submit" class="btn btn-success btn-xl" value="Comprar"/>
 					</div>
 				</form>
 			</div>
