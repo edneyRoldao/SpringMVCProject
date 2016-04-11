@@ -25,7 +25,7 @@
 		</header>
 		
 		<div class="novoBtn">
-	        <a href="/springTutorialCasaDoCodigo/produto/lista" class="btn btn-primary btn-sm">Listar Produtos</a>
+	        <a href='<spring:url value="/produto/lista"/>' class="btn btn-primary btn-sm">Pesquisa de Livros</a>
 		</div>
 		
 		<div class="container" style="margin-top: 10px">

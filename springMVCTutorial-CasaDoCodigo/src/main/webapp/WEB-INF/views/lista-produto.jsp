@@ -1,10 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>
-		<title>Lista de Produtos (livros)</title>
+		<title>Lista de Livros)</title>
 		
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		
@@ -21,14 +22,12 @@
 					<h6>Tutorial Spring MVC 4 - livro casa do código</h6>
 				</div>
 				<div class="novoBtn">
-					<a class="btn btn-success" href="/springTutorialCasaDoCodigo/">
-						HOME
-					</a>
+					<a class="btn btn-success" href='<spring:url value="/" />' > HOME </a>
 				</div>
 			</div>
 		</header>
 		<div class="novoBtn">
-	        <a href="/springTutorialCasaDoCodigo/produto/cadastro" class="btn btn-info btn-md">Novo Produto</a>
+	        <a href='<spring:url value="/produto/cadastro" />' class="btn btn-info btn-md">Novo Produto</a>
 		</div>
 		<div class="${sucesso != null ? 'showSuccess' : 'hideSuccess'} alert alert-success">
 			<strong>${sucesso}</strong>
@@ -41,7 +40,8 @@
 						<th>Titulo</th>
 						<th>descrição</th>
 						<th>Lançamento</th>
-						<th>valor</th>
+						<th>valores</th>
+						<th>Ações</th>
 					</tr>
 					<c:forEach items="${produtos}" var="produto">
 						<tr>
@@ -55,6 +55,9 @@
 									<strong>${preco.tipoProduto}</strong>: ${preco.valor}
 									&#160;&#160;
 								</c:forEach>
+							</td>
+							<td>
+								<a href='<spring:url value="/produto/detalhes/${produto.id}"/>' class="btn-sm btn-primary"> detalhes </a>
 							</td>
 						</tr>
 					</c:forEach>
