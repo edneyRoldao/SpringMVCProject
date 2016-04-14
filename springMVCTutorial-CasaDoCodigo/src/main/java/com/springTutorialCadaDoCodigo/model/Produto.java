@@ -1,6 +1,7 @@
 package com.springTutorialCadaDoCodigo.model;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -18,6 +19,8 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.format.annotation.DateTimeFormat;
+
+import com.springTutorialCadaDoCodigo.enuns.TipoProduto;
 
 @Entity
 @Table(name = "TB_PRODUTO")
@@ -49,6 +52,15 @@ public class Produto implements Serializable {
 
 	@ElementCollection(fetch = FetchType.EAGER)
 	private List<Preco> precos = new ArrayList<>();
+	
+	
+	//Método auxiliar
+	public BigDecimal ForPreco(TipoProduto tipo) {
+		return precos.stream()
+					 .filter(preco -> preco.getTipoProduto().equals(tipo))
+					 .findFirst().get().getValor();
+	}
+	
 
 	// Getters and Setters
 	public Integer getId() {

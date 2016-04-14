@@ -16,11 +16,6 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
-import com.springTutorialCadaDoCodigo.controller.IndexController;
-import com.springTutorialCadaDoCodigo.controller.ProdutoController;
-import com.springTutorialCadaDoCodigo.controller.TestController;
-import com.springTutorialCadaDoCodigo.dao.ProdutoDAO;
-import com.springTutorialCadaDoCodigo.util.FileSaver;
 
 /**
  * Nessa classe iremos registrar todos os nossos controllers e classe que serão
@@ -31,7 +26,7 @@ import com.springTutorialCadaDoCodigo.util.FileSaver;
  */
 @EnableWebMvc
 @Configuration
-@ComponentScan(basePackageClasses = {TestController.class, IndexController.class, ProdutoController.class, ProdutoDAO.class, FileSaver.class})
+@ComponentScan("com.springTutorialCadaDoCodigo")
 public class AppWebConfig extends WebMvcConfigurerAdapter {
 	
 	/**

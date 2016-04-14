@@ -76,14 +76,15 @@
 			
 			<!-- Lista de Preços -->
 			<div class="btnValores row text-center">
-				<form action='<c:url value="/produto/carrinho" />' method="post" >
+				<form action='<c:url value="/carrinho" />' method="post" >
 					<input type="hidden" value="${produto.id}">
 					<c:forEach items="${produto.precos}" var="preco">
 						<div class="radioValores col-md-3 hero-feature">
 							<div class="radioValores2 thumbnail">
 								<div class="radioValores3 caption">
 									<h4>
-										<input type="radio" id="${produto.id}-${preco.tipoProduto}" value="${preco.tipoProduto}" />
+										<input type="radio" name="tipo" id="${produto.id}-${preco.tipoProduto}" value="${preco.tipoProduto}" 
+										    ${preco.tipoProduto == 'COMBO' ? 'checked' : ''}	/>
 										&#160;
 										<strong>${preco.tipoProduto}</strong>
 									</h4>
