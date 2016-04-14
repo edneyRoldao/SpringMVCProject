@@ -24,6 +24,10 @@ public class CarrinhoComprasController {
 	
 	@RequestMapping(method = RequestMethod.POST)
 	public ModelAndView adicionarProdutoNoCarrinho(Integer idProduto, TipoProduto tipo) {
+		
+		System.out.println(idProduto);
+		System.out.println(tipo);
+		
 		ItemCompra item = criarItem(idProduto, tipo);
 		
 		carrinhoDeCompra.adicionarItem(item);

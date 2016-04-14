@@ -77,7 +77,7 @@
 			<!-- Lista de Preços -->
 			<div class="btnValores row text-center">
 				<form action='<c:url value="/carrinho" />' method="post" >
-					<input type="hidden" value="${produto.id}">
+					<input type="hidden" value="${produto.id}" name="idProduto">
 					<c:forEach items="${produto.precos}" var="preco">
 						<div class="radioValores col-md-3 hero-feature">
 							<div class="radioValores2 thumbnail">
