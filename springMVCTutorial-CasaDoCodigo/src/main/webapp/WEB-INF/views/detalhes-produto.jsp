@@ -40,7 +40,10 @@
 	                        <a href='<spring:url value="/produto/lista"/>'>Pesquisar Livro</a>
 	                    </li>
 	                    <li>
-	                        <a href="#">Carrinho de compras</a>
+	                        <a href="#">
+	                        	Seu Carrinho de compras
+	                        	<span>${carrinhoDeCompra.quantidade}</span>	
+                        	</a>
 	                    </li>
 	                </ul>
 	            </div>
@@ -67,7 +70,7 @@
 	            <div class="col-xs-3 col-md-4">
 					<img src='<spring:url value="${produto.caminhoResumo}"/>' class="img-responsive" alt="${produto.caminhoResumo}">
 	            </div>
-	            <div class="col-md-4">
+	            <div class="col-md-8">
 	                <h3>Resumo</h3>
 					<p> ${produto.descricao} </p> 
 	            </div>

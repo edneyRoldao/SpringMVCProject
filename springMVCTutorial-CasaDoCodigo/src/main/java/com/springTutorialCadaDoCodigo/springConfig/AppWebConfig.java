@@ -39,6 +39,12 @@ public class AppWebConfig extends WebMvcConfigurerAdapter {
 		resolver.setPrefix("/WEB-INF/views/");
 		resolver.setSuffix(".jsp");
 		
+		//Essa linha libera o acesso a todos os objetos do context por meio de expression language.
+		resolver.setExposeContextBeansAsAttributes(true);
+		
+		//podemos expor apenas os objetos que precisamos acessar
+		//resolver.setExposedContextBeanNames("nomeDaBean"); - nessa caso a bean seria carrinhoDeCompra
+		
 		return resolver;
 	}
 	

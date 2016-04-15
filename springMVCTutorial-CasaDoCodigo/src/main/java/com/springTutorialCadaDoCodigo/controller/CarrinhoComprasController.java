@@ -32,7 +32,7 @@ public class CarrinhoComprasController {
 		
 		carrinhoDeCompra.adicionarItem(item);
 		
-		return new ModelAndView("redirect:compra");
+		return new ModelAndView("redirect:lista");
 	}
 	
 	private ItemCompra criarItem(Integer idProduto, TipoProduto tipo) {
