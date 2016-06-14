@@ -1,5 +1,6 @@
 package com.springTutorialCadaDoCodigo.model;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Collection;
 import java.util.LinkedHashMap;
@@ -12,7 +13,10 @@ import org.springframework.web.context.WebApplicationContext;
 
 @Component
 @Scope(value = WebApplicationContext.SCOPE_SESSION, proxyMode = ScopedProxyMode.TARGET_CLASS)
-public class CarrinhoDeCompra {
+public class CarrinhoDeCompra implements Serializable{
+
+	private static final long serialVersionUID = 1L;
+	
 	
 	private Map<ItemCompra, Integer> itens = new LinkedHashMap<>();
 	

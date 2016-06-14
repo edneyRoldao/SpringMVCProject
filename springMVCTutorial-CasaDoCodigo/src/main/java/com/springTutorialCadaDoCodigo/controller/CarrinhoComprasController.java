@@ -25,14 +25,11 @@ public class CarrinhoComprasController {
 	@RequestMapping(method = RequestMethod.POST)
 	public ModelAndView adicionarProdutoNoCarrinho(Integer idProduto, TipoProduto tipo) {
 		
-		System.out.println(idProduto);
-		System.out.println(tipo);
-		
 		ItemCompra item = criarItem(idProduto, tipo);
 		
 		carrinhoDeCompra.adicionarItem(item);
 		
-		return new ModelAndView("redirect:lista");
+		return new ModelAndView("redirect:/produto/lista");
 	}
 	
 	private ItemCompra criarItem(Integer idProduto, TipoProduto tipo) {
