@@ -21,6 +21,8 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
  * Nessa classe iremos registrar todos os nossos controllers e classe que serão
  * gerenciadas pelo container do Spring.
  * 
+ * URL de acesso: http://localhost:8080/springTutorialCasaDoCodigo/
+ * 
  * @author Edney Roldao
  *
  */
