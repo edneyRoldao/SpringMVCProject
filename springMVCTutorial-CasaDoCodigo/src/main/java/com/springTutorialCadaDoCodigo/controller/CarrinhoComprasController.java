@@ -29,7 +29,15 @@ public class CarrinhoComprasController {
 		
 		carrinhoDeCompra.adicionarItem(item);
 		
-		return new ModelAndView("redirect:/produto/lista");
+		return new ModelAndView("redirect:/carrinho/itens");
+	}
+	
+	@RequestMapping(value = "/itens", method = RequestMethod.GET)
+	public ModelAndView produtosAdicionadosNoCarrinho() {
+
+		ModelAndView model = new ModelAndView("itens-carrinho");
+
+		return model;
 	}
 	
 	private ItemCompra criarItem(Integer idProduto, TipoProduto tipo) {

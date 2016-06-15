@@ -14,7 +14,7 @@
 	</head>
 	<body>
 		<header>
-			<div class="jumbotron">
+			<div class="jumbotron headerIndex">
 				<div class="container">
 					<h2>Seja Bem ao Tutorial de Spring MVC 4</h2>
 					<h6>Este projeto é todo escrito em Spring, além disso, ele não contém arquivos xml. É tudo programático.<br/>
@@ -27,15 +27,26 @@
 		
 		<div class="container">
 			<div class="indexBtn">
-				<a class="btn btn-primary" href="/springTutorialCasaDoCodigo/produto/lista">
-					Pesquisar Produtos
-				</a>
+				<div style="float: left;">
+					<a class="btn btn-primary" href="/springTutorialCasaDoCodigo/produto/lista">
+						Pesquisar Produtos
+					</a>
+				</div>
+				<div >
+					<a class="btn btn-primary" href="/springTutorialCasaDoCodigo/produto/cadastro">
+						Cadastrar Produtos
+					</a>
+				</div>			
 			</div>
-			
-			<div >
-				<a class="btn btn-primary" href="/springTutorialCasaDoCodigo/produto/cadastro">
-					Cadastrar Produtos
-				</a>
+			<div style="margin-top: 30px;">
+				<h3 style="text-align: center;">Lista de Assuntos abordados nesse projeto	</h3>
+				<ul>
+					<li>Spring Framework</li>
+					<li>Spring MVC</li>
+					<li>Spring Data</li>
+					<li>Spring Security</li>
+					<li>Rest</li>
+				</ul>
 			</div>
 		</div>
 		
