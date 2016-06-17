@@ -26,26 +26,26 @@
 		</header>
 		
 		<div class="container">
-			<div class="indexBtn">
+			<div class="indexBtn" style="margin-left: 300px;">
 				<div style="float: left;">
-					<a class="btn btn-primary" href="/springTutorialCasaDoCodigo/produto/lista">
-						Pesquisar Produtos
-					</a>
-				</div>
-				<div >
 					<a class="btn btn-primary" href="/springTutorialCasaDoCodigo/produto/cadastro">
 						Cadastrar Produtos
 					</a>
 				</div>			
+				<div>
+					<a class="btn btn-primary" href="/springTutorialCasaDoCodigo/produto/lista">
+						Pesquisar Produtos
+					</a>
+				</div>
 			</div>
-			<div style="margin-top: 30px;">
-				<h3 style="text-align: center;">Lista de Assuntos abordados nesse projeto	</h3>
+			<div class="bodyIndex">
+				<h3 style="margin-bottom: 25px;">Lista de Assuntos abordados nesse projeto</h3>
 				<ul>
 					<li>Spring Framework</li>
 					<li>Spring MVC</li>
 					<li>Spring Data</li>
 					<li>Spring Security</li>
-					<li>Rest</li>
+					<li>Restful</li>
 				</ul>
 			</div>
 		</div>
