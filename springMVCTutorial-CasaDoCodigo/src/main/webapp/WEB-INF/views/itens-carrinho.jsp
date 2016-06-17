@@ -17,22 +17,74 @@
 	    
 	</head>
 	<body>
-	
-		<h1>Itens do Carrinho</h1>	
-	
-		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-			<ul class="nav navbar-nav">
-				<li>
-					<a href="#">
-						Seu Carrinho de compras
-						<span>${carrinhoDeCompra.quantidade}</span>	
-					</a>
-				</li>
-			</ul>
-		</div>
-		
-		<div>
-		   <a href='<spring:url value="/produto/lista"/>'>Pesquisar mais livro</a>
+	    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+	        <div class="container">
+	            <div class="navbar-header">
+	                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+	                    <span class="sr-only">Toggle navigation</span>
+	                    <span class="icon-bar"></span>
+	                    <span class="icon-bar"></span>
+	                    <span class="icon-bar"></span>
+	                </button>
+	                <a class="navbar-brand" href='<spring:url value="/"/>'>HOME</a>
+	            </div>
+	            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	                <ul class="nav navbar-nav">
+	                    <li>
+	                        <a href='<spring:url value="/produto/cadastro"/>'>Cadastrar Livro</a>
+	                    </li>
+	                    <li>
+	                        <a href='<spring:url value="/produto/lista"/>'>Pesquisar Livro</a>
+	                    </li>
+	                </ul>
+	            </div>
+	        </div>
+	    </nav>
+	    
+	    <header>
+			<div class="jumbotron headerListagem" style="height: 140px">
+				<div class="container" style="margin-top: -30px">
+					<h2>Finalizando a Compra</h2>
+					<h5>Valor total dos ítens adicionados R$ ${carrinhoDeCompra.total}</h5>					
+				</div>
+			</div>
+		</header>
+	    
+	    <div class="container">
+	    	<div class="panel panel-default panel-success">
+				<div class="panel-heading">
+					<h3 class="panel-title">Total de ítens da compra: &#160; ${carrinhoDeCompra.quantidade}</h3>
+				</div>
+				<div class="panel-body">
+					<table class="table table-striped">
+						<tr>
+							<th>Titulo</th>
+							<th>Subtitulo</th>
+							<th>Valor do ítem</th>
+							<th>Quantidade</th>
+							<th>Subtotal</th>							
+							<th>Ações</th>
+						</tr>
+						<c:forEach items="${carrinhoDeCompra.lista}" var="item">
+							<tr>
+								<td>${item.produto.titulo}</td>
+								<td>${item.produto.subtitulo}</td>
+								<td>${item.preco}</td>
+								<td>${carrinhoDeCompra.getQuantidade(item)}</td>
+								<td>R$ ${carrinhoDeCompra.getTotal(item)}</td>
+								<td>
+									<a href='<spring:url value="/produto/detalhes/${produto.id}"/>' class="btn-sm btn-primary"> Remover </a>
+								</td>
+							</tr>
+						</c:forEach>
+					</table>
+				</div>
+				<div class="panel-footer">
+					<form method="post" action="/springTutorialCasaDoCodigo/pagamento/finaliza">
+						<input type="submit" value="Finalizar Compra ( total R$ ${carrinhoDeCompra.total} )" class="btn btn-default btn-success">
+					</form>						
+				</div>			
+	    	</div>
 		</div>
 		
 		<footer class="footer" style="margin-top: 10px">

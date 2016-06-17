@@ -40,9 +40,9 @@
 	                        <a href='<spring:url value="/produto/lista"/>'>Pesquisar Livro</a>
 	                    </li>
 	                    <li>
-	                        <a href="#">
-	                        	Seu Carrinho de compras
-	                        	<span>${carrinhoDeCompra.quantidade}</span>	
+	                        <a href='<spring:url value="/carrinho/itens"/>'>
+	                        	Finalizar Compra - Itens 
+	                        	(<span>${carrinhoDeCompra.quantidade}</span>)	
                         	</a>
 	                    </li>
 	                </ul>
