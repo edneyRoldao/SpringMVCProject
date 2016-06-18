@@ -33,7 +33,7 @@
 				</div>
 			</div>
 		</header>
-		<div class="container" style="margin-top: 10px">
+		<div class="container" style="margin-top: 10px; width: 1000px;">
 			<div class="panel panel-default panel-primary">
 				<div class="panel-heading">
 				<h3 class="panel-title">Formulário de Cadastro de Novo Produto</h3>
@@ -56,7 +56,7 @@
 							<div class="form-group" style="margin-top: 10px;">
 								<form:errors path="descricao" cssClass="errorMessages"/>
 								<label for="element-3" class="sr-only">Resumo</label>
-								<form:textarea rows="6" path="descricao" id="element-3" class="form-control" placeholder="Informe a resenha do livro"/>
+								<form:textarea rows="4" path="descricao" id="element-3" class="form-control" placeholder="Informe a resenha do livro" htmlEscape="false" />
 								<span class="glyphicon glyphicon-ok form-control-feedback"></span>
 							</div>
 							<div class="row" style="margin-bottom: 10px;">
@@ -96,9 +96,7 @@
 						</form:form>
 					</div>
 				</div>
-			</div>
-				
-					
+			</div>			
 		</div>		
 		<footer class="footer" style="margin-top: 10px">
 			<p>

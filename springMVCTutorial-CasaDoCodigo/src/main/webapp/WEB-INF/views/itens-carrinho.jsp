@@ -50,7 +50,7 @@
 			</div>
 		</header>
 	    
-	    <div class="container">
+	    <div class="container" style="width: 1000px">
 	    	<div class="panel panel-default panel-success">
 				<div class="panel-heading">
 					<h3 class="panel-title">Total de ítens da compra: &#160; ${carrinhoDeCompra.quantidade}</h3>
@@ -60,7 +60,8 @@
 						<tr>
 							<th>Titulo</th>
 							<th>Subtitulo</th>
-							<th>Valor do ítem</th>
+							<th>Tipo</th>
+							<th>Valor</th>
 							<th>Quantidade</th>
 							<th>Subtotal</th>							
 							<th>Ações</th>
@@ -69,8 +70,9 @@
 							<tr>
 								<td>${item.produto.titulo}</td>
 								<td>${item.produto.subtitulo}</td>
+								<td>${item.tipoProduto}</td>
 								<td>${item.preco}</td>
-								<td>${carrinhoDeCompra.getQuantidade(item)}</td>
+								<td> &#160;&#160;&#160;&#160;&#160;&#160;&#160; ${carrinhoDeCompra.getQuantidade(item)}</td>
 								<td>R$ ${carrinhoDeCompra.getTotal(item)}</td>
 								<td>
 									<a href='<spring:url value="/produto/detalhes/${produto.id}"/>' class="btn-sm btn-primary"> Remover </a>

@@ -2,6 +2,11 @@ package com.springTutorialCadaDoCodigo.model;
 
 import java.math.BigDecimal;
 
+/**
+ * Esta classe sera convertida uma objeto JSON que sera enviado para o servico rest de pagamento.
+ * @author edneyroldao
+ *
+ */
 public class DadosPagamento {
 	
 	// Atributo

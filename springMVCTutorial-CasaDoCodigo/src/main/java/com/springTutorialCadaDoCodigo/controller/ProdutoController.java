@@ -4,6 +4,8 @@ import javax.transaction.Transactional;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -49,6 +51,7 @@ public class ProdutoController {
 		return model;
 	}
 
+	@CacheEvict(value="livros", allEntries=true)
 	@RequestMapping(value = "/lista", method = RequestMethod.POST, name = "cadastroProduto")
 	public ModelAndView cadastrar(MultipartFile resumo, @Valid Produto produto, BindingResult bindResult, RedirectAttributes redirect) {
 		
@@ -68,6 +71,7 @@ public class ProdutoController {
 		return new ModelAndView("redirect:lista");
 	}
 
+	@Cacheable(value="livros")
 	@RequestMapping(value = "/lista", method = RequestMethod.GET)
 	public ModelAndView listarProdutos() {
 

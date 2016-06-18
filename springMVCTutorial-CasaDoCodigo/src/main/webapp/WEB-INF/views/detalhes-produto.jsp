@@ -68,7 +68,7 @@
 			<!-- Item Row -->
 	        <div class="row">
 	            <div class="col-xs-3 col-md-4">
-					<img src='<spring:url value="${produto.caminhoResumo}"/>' class="img-responsive" alt="${produto.caminhoResumo}">
+					<img src='<spring:url value="${produto.caminhoResumo}"/>' class="img-responsive imgDetalhes" alt="${produto.caminhoResumo}">
 	            </div>
 	            <div class="col-md-8">
 	                <h3>Resumo</h3>
