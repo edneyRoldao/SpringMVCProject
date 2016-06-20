@@ -1,5 +1,7 @@
 package com.springTutorialCadaDoCodigo.springConfig;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.springframework.cache.CacheManager;
@@ -14,15 +16,19 @@ import org.springframework.format.datetime.DateFormatter;
 import org.springframework.format.datetime.DateFormatterRegistrar;
 import org.springframework.format.support.DefaultFormattingConversionService;
 import org.springframework.format.support.FormattingConversionService;
+import org.springframework.web.accept.ContentNegotiationManager;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.multipart.MultipartResolver;
 import org.springframework.web.multipart.support.StandardServletMultipartResolver;
+import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.view.ContentNegotiatingViewResolver;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import com.google.common.cache.CacheBuilder;
+import com.springTutorialCadaDoCodigo.viewResolver.JsonViewResolver;
 
 
 /**
@@ -39,6 +45,23 @@ import com.google.common.cache.CacheBuilder;
 @EnableCaching
 @ComponentScan("com.springTutorialCadaDoCodigo")
 public class AppWebConfig extends WebMvcConfigurerAdapter {
+	
+	/**
+	 * ViewResolver que trata do contentNegotiation para a aplicação atender a mais de um formato.
+	 */
+	@Bean
+	public ViewResolver contentNegotiatingViewResolver(ContentNegotiationManager manager) {
+		
+		List<ViewResolver> resolvers = new ArrayList<>();
+		resolvers.add(internalResourceViewResolver());
+		resolvers.add(new JsonViewResolver());
+		
+		ContentNegotiatingViewResolver resolver = new ContentNegotiatingViewResolver();
+		resolver.setViewResolvers(resolvers);
+		resolver.setContentNegotiationManager(manager);
+		
+		return resolver;
+	}
 	
 	/**
 	 * Registrando um viewResolver para tratar o caminho das nossos páginas
@@ -92,9 +115,9 @@ public class AppWebConfig extends WebMvcConfigurerAdapter {
 	public CacheManager cacheManager() {
 		
 		CacheBuilder<Object, Object> builder = CacheBuilder
-															.newBuilder()
-															.maximumSize(100)
-															.expireAfterAccess(5, TimeUnit.MINUTES);
+														.newBuilder()
+														.maximumSize(100)
+														.expireAfterAccess(5, TimeUnit.MINUTES);
 
 		GuavaCacheManager cacheManager = new GuavaCacheManager();
 		cacheManager.setCacheBuilder(builder);

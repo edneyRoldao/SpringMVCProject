@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.context.request.async.DeferredResult;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.springTutorialCadaDoCodigo.model.CarrinhoDeCompra;
 import com.springTutorialCadaDoCodigo.service.IntegrandoComPagamento;
@@ -32,6 +33,16 @@ public class PagamentoController {
 		Thread thread = new Thread(integrando);
 		thread.start();
 		return result;
+	}
+	
+	@RequestMapping(value="/success", method= RequestMethod.GET)
+	public ModelAndView finalizarCompra() {
+		return new ModelAndView("compra-sucesso");
+	}
+
+	@RequestMapping(value="/error", method= RequestMethod.GET)
+	public ModelAndView erroCompra() {
+		return new ModelAndView("compra-erro");
 	}
 
 }

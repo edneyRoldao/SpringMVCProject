@@ -33,7 +33,7 @@ public class IntegrandoComPagamento implements Runnable {
 			result.setResult("redirect:/pagamento/success");
 			
 		} catch (HttpClientErrorException e) {
-			result.setResult("redirect:/pagamento/erro");
+			result.setResult("redirect:/pagamento/error");
 		}
 	}
 
