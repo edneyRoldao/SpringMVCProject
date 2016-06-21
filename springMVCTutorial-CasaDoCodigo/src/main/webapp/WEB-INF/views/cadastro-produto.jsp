@@ -1,4 +1,6 @@
+<%@page import="com.fasterxml.jackson.annotation.JsonInclude.Include"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@taglib uri="http://www.springframework.org/security/tags" prefix="security" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -6,13 +8,8 @@
 <html>
 	<head>
 		<title>Cadastro de Produto (livros)</title>
-		
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		
-	    <!-- Bootstrap -->
-	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"/>
-	    <link href="../resources/css/bootstrap.min.css" rel="stylesheet"/>
-	    <link href="../resources/css/springTutorial.css" rel="stylesheet"/>
+		<jsp:include page="/WEB-INF/views/estilos.jsp"/>		
 	</head>
 	<body>
 		<header>
@@ -41,6 +38,7 @@
 				<div class="panel-body">
 					<div class="cadastro-form">
 						<form:form method="post" action="/springTutorialCasaDoCodigo/produto/lista" commandName="produto" enctype="multipart/form-data">
+							<security:csrfInput/>						
 							<div class="row">
 								<div class="col-xs-6">
 									<form:errors path="titulo" cssClass="errorMessages"/>
@@ -98,16 +96,7 @@
 				</div>
 			</div>			
 		</div>		
-		<footer class="footer" style="margin-top: 10px">
-			<p>
-				© 2016 - Developed by Edney Roldão &#160;&#160;
-				<img src="../resources/img/avatar.jpg"/>
-			</p>
-		</footer>
-		
-		<!-- Bootstrap and JQuery JAVASCRIPT -->
-		<!-- Include all compiled plugins (below), or include individual files as needed -->
-		<script src="../resources/js/jquery-1.11.3.min.js"></script>
-		<script src="../resources/js/bootstrap.min.js"></script>
+		<jsp:include page="/WEB-INF/views/footer.jsp"/>
+		<jsp:include page="/WEB-INF/views/scripts.jsp"/>
 	</body>
 </html>

@@ -4,9 +4,7 @@
 <html>
 	<head>
 		<title>Home</title>
-		
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		
 	    <!-- Bootstrap -->
 	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"/>
 	    <link href="resources/css/bootstrap.min.css" rel="stylesheet"/>
@@ -49,17 +47,15 @@
 				</ul>
 			</div>
 		</div>
-		
 		<footer class="footer" style="margin-top: 10px">
 			<p>
 				© 2016 - Developed by Edney Roldão &#160;&#160;
-				<img src="resources/img/avatar.jpg"/>
+				<img src='<c:url value="/resources/img/avatar.jpg"/>'/>
 			</p>
 		</footer>
-		
 		<!-- Bootstrap and JQuery JAVASCRIPT -->
 		<!-- Include all compiled plugins (below), or include individual files as needed -->
 		<script src="resources/js/jquery-1.11.3.min.js"></script>
-		<script src="resources/js/bootstrap.min.js"></script>
+		<script src="resources/js/bootstrap.min.js"></script>	
 	</body>
 </html>

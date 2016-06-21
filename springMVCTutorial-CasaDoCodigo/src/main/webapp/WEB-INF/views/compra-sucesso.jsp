@@ -3,16 +3,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>
-		<title>Home</title>
-		
+		<title>Compra efetuada !</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		
-	    <!-- Bootstrap -->
-	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"/>
-	    <link href='<c:url value="/resources/css/bootstrap.min.css"/>' rel="stylesheet"/>
-	    <link href='<c:url value="/resources/css/springTutorial.css"/>' rel="stylesheet"/>
-	    <link href='<c:url value="/resources/css/springTutorialRadioStyle.css"/>' rel="stylesheet"/>
-	    
+		<jsp:include page="/WEB-INF/views/estilos.jsp"/>		
 	</head>
 	<body>
 		 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -48,21 +41,9 @@
 		</header>
 		
 		<div class="container" style="margin-top: 50px; margin-bottom: 50px;">
-		
 			<h3 style="text-align: center;">Obrigado pela compra !!! - volte sempre !!!</h3>
-		
 		</div>
-		
-		<footer class="footer" style="margin-top: 10px">
-			<p>
-				© 2016 - Developed by Edney Roldão &#160;&#160;
-				<img src='<c:url value="/resources/img/avatar.jpg"/>'/>
-			</p>
-		</footer>
-		
-		<!-- Bootstrap and JQuery JAVASCRIPT -->
-		<!-- Include all compiled plugins (below), or include individual files as needed -->
-		<script src='<c:url value="/resources/js/jquery-1.11.3.min.js"/>'></script>
-		<script src='<c:url value="/resources/js/bootstrap.min.js"/>'></script>
+		<jsp:include page="/WEB-INF/views/footer.jsp"/>
+		<jsp:include page="/WEB-INF/views/scripts.jsp"/>
 	</body>
 </html>

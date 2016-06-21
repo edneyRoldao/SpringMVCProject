@@ -5,16 +5,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>
-		<title>Página de detalhes</title>
-		
+		<title>Detalhes do Produto</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		
 	    <!-- Bootstrap -->
 	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"/>
 	    <link href='<c:url value="/resources/css/bootstrap.min.css"/>' rel="stylesheet"/>
 	    <link href='<c:url value="/resources/css/springTutorial.css"/>' rel="stylesheet"/>
 	    <link href='<c:url value="/resources/css/springTutorialRadioStyle.css"/>' rel="stylesheet"/>
-	    
 	</head>
 	<body>
 	    <!-- Navigation -->
@@ -101,17 +98,13 @@
 					</div>
 				</form>
 			</div>
-			<!--  /.div form -->
 		</div>
-	    <!-- / .Page Content -->
-		
-		<footer class="footer" style="margin-top: 10px">
+	<footer class="footer" style="margin-top: 10px">
 			<p>
 				© 2016 - Developed by Edney Roldão &#160;&#160;
 				<img src='<c:url value="/resources/img/avatar.jpg"/>'/>
 			</p>
 		</footer>
-		
 		<!-- Bootstrap and JQuery JAVASCRIPT -->
 		<!-- Include all compiled plugins (below), or include individual files as needed -->
 		<script src='<c:url value="/resources/js/jquery-1.11.3.min.js"/>'></script>

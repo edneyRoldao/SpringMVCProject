@@ -8,6 +8,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
@@ -22,7 +23,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 			.antMatchers("/carrinho/**").permitAll()
 			.antMatchers(HttpMethod.POST, "/lista").hasRole("ADMIN")
 			.antMatchers("/lista/**").permitAll()
-			.anyRequest().authenticated().and().formLogin();
+			.anyRequest().authenticated()
+			.and().formLogin().loginPage("/login").permitAll();
+			//.and().logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"));
 	}
 	
 	
