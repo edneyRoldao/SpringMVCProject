@@ -1,21 +1,19 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ include file="../templates/taglib.jsp" %>
 <html>
 	<head>
-		<title>Acesso n√£o permitido</title>
+		<title>Acesso n„o permitido</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<jsp:include page="/WEB-INF/views/estilos.jsp"/>		
+		<%@ include file="../templates/estilos.jsp" %>		
 	</head>
 	<body>
 		<header>
-			<div class="jumbotron headerIndex">
+			<div class="jumbotron containerApp">
 				<div class="container">
-					<h2>ACESSO N√ÉO AUTORIZADO !</h2>
+					<h2>ACESSO N√O AUTORIZADO !</h2>
 				</div>
 			</div>
 		</header>
-		<jsp:include page="/WEB-INF/views/footer.jsp"/>
-		<jsp:include page="/WEB-INF/views/scripts.jsp"/>
+		<%@ include file="../templates/footer.jsp" %>
+		<%@ include file="../templates/scripts.jsp" %>
 	</body>
 </html>

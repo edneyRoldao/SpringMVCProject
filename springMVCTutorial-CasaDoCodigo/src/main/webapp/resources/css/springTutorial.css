@@ -95,10 +95,11 @@
 	margin-right: 35px;
 }
 
-.headerListagem {
+.containerApp {
 	margin-top: 70px;
-	margin-left: 100px;
-	margin-right: 100px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 1150px;
 	text-align: center;
 }
 
@@ -106,3 +107,46 @@
 	width: 280px;
 	height: 350px;
 }
+
+.menu {
+	margin-top: 5px;
+}
+
+.formUser {
+	margin-top: 200px;
+	width: 600px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 200px;
+}
+
+.formLogin {
+	margin-top: 50px;
+	width: 600px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 100px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

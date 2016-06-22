@@ -1,53 +1,24 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@taglib uri="http://www.springframework.org/security/tags" prefix="security" %>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
-<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ include file="../templates/taglib.jsp" %>
 <html>
 	<head>
 		<title>itens no carrinho</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<jsp:include page="/WEB-INF/views/estilos.jsp"/>		
+		<%@ include file="../templates/estilos.jsp" %>		
 	</head>
 	<body>
-	    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-	        <div class="container">
-	            <div class="navbar-header">
-	                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-	                    <span class="sr-only">Toggle navigation</span>
-	                    <span class="icon-bar"></span>
-	                    <span class="icon-bar"></span>
-	                    <span class="icon-bar"></span>
-	                </button>
-	                <a class="navbar-brand" href='<spring:url value="/"/>'>HOME</a>
-	            </div>
-	            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-	                <ul class="nav navbar-nav">
-	                    <li>
-	                        <a href='<spring:url value="/produto/cadastro"/>'>Cadastrar Livro</a>
-	                    </li>
-	                    <li>
-	                        <a href='<spring:url value="/produto/lista"/>'>Pesquisar Livro</a>
-	                    </li>
-	                </ul>
-	            </div>
-	        </div>
-	    </nav>
-	    
+		<%@ include file="../templates/menu.jsp" %>
 	    <header>
-			<div class="jumbotron headerListagem" style="height: 140px">
+			<div class="jumbotron containerApp" style="height: 140px">
 				<div class="container" style="margin-top: -30px">
 					<h2>Finalizando a Compra</h2>
-					<h5>Valor total dos Ã­tens adicionados R$ ${carrinhoDeCompra.total}</h5>					
+					<h5>Valor total dos ítens adicionados R$ ${carrinhoDeCompra.total}</h5>					
 				</div>
 			</div>
 		</header>
-	    
-	    <div class="container" style="width: 1000px">
+	    <div class="container" style="width: 1150px">
 	    	<div class="panel panel-default panel-success">
 				<div class="panel-heading">
-					<h3 class="panel-title">Total de Ã­tens da compra: &#160; ${carrinhoDeCompra.quantidade}</h3>
+					<h3 class="panel-title">Total de ítens da compra: &#160; ${carrinhoDeCompra.quantidade}</h3>
 				</div>
 				<div class="panel-body">
 					<table class="table table-striped">
@@ -58,7 +29,7 @@
 							<th>Valor</th>
 							<th>Quantidade</th>
 							<th>Subtotal</th>							
-							<th>AÃ§Ãµes</th>
+							<th>Ações</th>
 						</tr>
 						<c:forEach items="${carrinhoDeCompra.lista}" var="item">
 							<tr>
@@ -83,7 +54,7 @@
 				</div>			
 	    	</div>
 		</div>
-		<jsp:include page="/WEB-INF/views/footer.jsp"/>
-		<jsp:include page="/WEB-INF/views/scripts.jsp"/>
+		<%@ include file="../templates/footer.jsp" %>
+		<%@ include file="../templates/scripts.jsp" %>
 	</body>
 </html>

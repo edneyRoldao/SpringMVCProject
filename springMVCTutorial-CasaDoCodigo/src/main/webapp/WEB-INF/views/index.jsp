@@ -1,41 +1,24 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ include file="../templates/taglib.jsp" %>
 <html>
 	<head>
 		<title>Home</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	    <!-- Bootstrap -->
-	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"/>
-	    <link href="resources/css/bootstrap.min.css" rel="stylesheet"/>
-	    <link href="resources/css/springTutorial.css" rel="stylesheet"/>
+		<%@ include file="../templates/estilos.jsp" %>
 	</head>
 	<body>
+		<%@ include file="../templates/menu.jsp" %>
 		<header>
-			<div class="jumbotron headerIndex">
+			<div class="jumbotron containerApp">
 				<div class="container">
 					<h2>Seja Bem ao Tutorial de Spring MVC 4</h2>
-					<h6>Este projeto √© todo escrito em Spring, al√©m disso, ele n√£o cont√©m arquivos xml. √â tudo program√°tico.<br/>
-						Este projeto √© uma vers√£o melhorada do apresentado pelo livro sobre spring MVC da casa do c√≥digo pois eu<br/>
+					<h6>Este projeto È todo escrito em Spring, alÈm disso, ele n„o contÈm arquivos xml. … tudo program·tico.<br/>
+						Este projeto È uma vers„o melhorada do apresentado pelo livro sobre spring MVC da casa do cÛdigo pois eu<br/>
 						apliquei Bootstrap em todo o frontEnd.						
 					</h6>
 				</div>
 			</div>
 		</header>
-		
 		<div class="container">
-			<div class="indexBtn" style="margin-left: 300px;">
-				<div style="float: left;">
-					<a class="btn btn-primary" href="/springTutorialCasaDoCodigo/produto/cadastro">
-						Cadastrar Produtos
-					</a>
-				</div>			
-				<div>
-					<a class="btn btn-primary" href="/springTutorialCasaDoCodigo/produto/lista">
-						Pesquisar Produtos
-					</a>
-				</div>
-			</div>
 			<div class="bodyIndex">
 				<h3 style="margin-bottom: 25px;">Lista de Assuntos abordados nesse projeto</h3>
 				<ul>
@@ -47,15 +30,7 @@
 				</ul>
 			</div>
 		</div>
-		<footer class="footer" style="margin-top: 10px">
-			<p>
-				¬© 2016 - Developed by Edney Rold√£o &#160;&#160;
-				<img src='<c:url value="/resources/img/avatar.jpg"/>'/>
-			</p>
-		</footer>
-		<!-- Bootstrap and JQuery JAVASCRIPT -->
-		<!-- Include all compiled plugins (below), or include individual files as needed -->
-		<script src="resources/js/jquery-1.11.3.min.js"></script>
-		<script src="resources/js/bootstrap.min.js"></script>	
+		<%@ include file="../templates/footer.jsp" %>
+		<%@ include file="../templates/scripts.jsp" %>
 	</body>
 </html>
