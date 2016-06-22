@@ -27,7 +27,8 @@
 	            </div>
 	        </div>
 			<div class="btnValores row text-center">
-				<form action='<c:url value="/carrinho" />' method="post" >
+				<form:form action="/springTutorialCasaDoCodigo/carrinho" method="post" >
+					<security:csrfInput/>
 					<input type="hidden" value="${produto.id}" name="idProduto">
 					<c:forEach items="${produto.precos}" var="preco">
 						<div class="radioValores col-md-3 hero-feature">
@@ -47,7 +48,7 @@
 					<div class="radioValores4 col-md-3 hero-feature">
 				        <input type="submit" class="btn btn-success btn-xl" value="Comprar"/>
 					</div>
-				</form>
+				</form:form>
 			</div>
 		</div>
 		<%@ include file="../templates/footer.jsp" %>

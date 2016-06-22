@@ -5,6 +5,8 @@ import javax.servlet.ServletRegistration.Dynamic;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
+import com.springTutorialCadaDoCodigo.security.SpringSecurityAuthConfig;
+
 /**
  * Registrando a Servlet padrão do spring. (Esse classe substitui configurações
  * no arquivo web.xml)
@@ -18,7 +20,7 @@ public class SpringMVCServlet extends AbstractAnnotationConfigDispatcherServletI
 
 	@Override
 	protected Class<?>[] getRootConfigClasses() {
-		return new Class[]{AppWebConfig.class, JPAConfig.class};
+		return new Class[]{AppWebConfig.class, JPAConfig.class, SpringSecurityAuthConfig.class};
 	}
 
 	/*

@@ -10,7 +10,6 @@ import com.springTutorialCadaDoCodigo.model.Role;
 @Repository
 public class RoleDAO {
 	
-
 	@PersistenceContext
 	private EntityManager em;
 	
@@ -18,5 +17,6 @@ public class RoleDAO {
 	public void cadastrar(Role role) {
 		em.persist(role);
 	}
+
 
 }

@@ -10,28 +10,29 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Repository;
 
-import com.springTutorialCadaDoCodigo.model.User;
+import com.springTutorialCadaDoCodigo.model.Usuario;
 
 @Repository
-public class UserDAO implements UserDetailsService{
-	
-	public static final String JPQL = "select u from User u where u.login = :login";
+public class UserDAO implements UserDetailsService {
 
 	@PersistenceContext
 	private EntityManager em;
 	
-	@Override
-	public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
-		List<User> users = em.createQuery(JPQL, User.class).setParameter("login", userName).getResultList();
+	
+	public void cadastrar(Usuario user) {
+		em.persist(user);
+	}
 
+	@Override
+	public UserDetails loadUserByUsername(String login) throws UsernameNotFoundException {
+		
+		String query = "select u from Usuario u where u.login = :login";
+		List<Usuario> users = em.createQuery(query, Usuario.class).setParameter("login", login).getResultList();
+		
 		if(users.isEmpty())
-			throw new UsernameNotFoundException("O usuario " + userName + " não existe");
+			throw new UsernameNotFoundException("O usuario " + login + " nao existe");
 		
 		return users.get(0);
 	}
 	
-	public void cadastrar(User user) {
-		em.persist(user);
-	}
-
 }

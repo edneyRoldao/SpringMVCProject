@@ -6,6 +6,7 @@
 		<%@ include file="../templates/estilos.jsp" %>
 	</head>
 	<body>
+		<%@ include file="../templates/menu.jsp" %>
 		<header>
 			<div class="jumbotron containerApp" style="width: 600px;">
 				<div class="container">
