@@ -1,6 +1,12 @@
 package com.springTutorialCadaDoCodigo.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -11,6 +17,7 @@ import com.springTutorialCadaDoCodigo.model.Role;
 import com.springTutorialCadaDoCodigo.model.Usuario;
 
 @Controller
+@Transactional
 @RequestMapping("/usuario")
 public class AuthController {
 	
@@ -33,14 +40,30 @@ public class AuthController {
 	@RequestMapping("/efetivaCadastro")
 	public ModelAndView cadastrar(Usuario usuario) {
 		
-		Role r = new Role();
-		r.setName("ADMIN");
-		roleDAO.cadastrar(r);
+		List<Role> roles = new ArrayList<>();
+		roles.add(buscarRole("ADMIN"));
 		
+		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+		String senha = encoder.encode(usuario.getPassword());
+		usuario.setPassword(senha);
 		
-		return new ModelAndView("redirect:login");
+		usuario.setRoles(roles);
+		userDAO.cadastrar(usuario);
+				
+		return new ModelAndView("redirect:/index");
 	}
 
+	private Role buscarRole(String name) {
+		
+		Role role = roleDAO.buscar(name);
+		
+		if(role.getName().equals("")) {
+			role.setName(name);
+			roleDAO.cadastrar(role);
+		}
+		
+		return role;
+	}
 	
 	
 }

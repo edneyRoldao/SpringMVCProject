@@ -28,7 +28,7 @@
 							<div class="row" style="margin-bottom: 15px;">
 								<div class="col-xs-12">
 									<label for="element-2" class="sr-only">Password</label>
-									<form:input path="password" id="element-2" class="form-control" placeholder="Informe uma senha"/>
+									<form:password path="password" id="element-2" class="form-control" placeholder="Informe uma senha"/>
 								</div>
 							</div>
 							<div class="form-group" style="margin-top: 15px">
