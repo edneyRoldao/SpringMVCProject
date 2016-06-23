@@ -18,17 +18,23 @@
 				<div class="panel-body">
 					<div class="cadastro-form">
 						<form:form method="post" action="/springTutorialCasaDoCodigo/usuario/efetivaCadastro" commandName="usuario">
-							<security:csrfInput/>						
+							<security:csrfInput/>
 							<div class="row" style="margin-bottom: 15px;margin-top: 20px">
 								<div class="col-xs-12">
 									<label for="element-1" class="sr-only">Nome de Usuário</label>
-									<form:input path="login" id="element-1" class="form-control" placeholder="Infome nome de usuário"/>
+									<form:input path="name" id="element-1" class="form-control" placeholder="Infome seu nome"/>
+								</div>
+							</div>
+							<div class="row" style="margin-bottom: 15px;margin-top: 15px">
+								<div class="col-xs-12">
+									<label for="element-2" class="sr-only">login</label>
+									<form:input path="login" id="element-2" class="form-control" placeholder="Infome um login"/>
 								</div>
 							</div>
 							<div class="row" style="margin-bottom: 15px;">
 								<div class="col-xs-12">
-									<label for="element-2" class="sr-only">Password</label>
-									<form:password path="password" id="element-2" class="form-control" placeholder="Informe uma senha"/>
+									<label for="element-3" class="sr-only">Password</label>
+									<form:password path="password" id="element-3" class="form-control" placeholder="Informe uma senha"/>
 								</div>
 							</div>
 							<div class="form-group" style="margin-top: 15px">

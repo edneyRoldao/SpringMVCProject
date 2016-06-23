@@ -1,4 +1,4 @@
-package com.springTutorialCadaDoCodigo.model;
+package com.springTutorialCadaDoCodigo.security;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -21,6 +21,7 @@ public class Usuario implements UserDetails {
 	@Id
 	private String login;
 	private String password;
+	private String name;
 	
 	@ManyToMany(fetch = FetchType.EAGER)
 	private List<Role> roles = new ArrayList<>();
@@ -90,5 +91,13 @@ public class Usuario implements UserDetails {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
 	
-}
+	}

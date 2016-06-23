@@ -21,6 +21,12 @@
 		<div class="container">
 			<div class="bodyIndex">
 				<h3 style="margin-bottom: 25px;">Lista de Assuntos abordados nesse projeto</h3>
+				
+				<security:authorize access="isAuthenticated()">
+					<security:authentication property="principal" var="usuario"/>
+					${usuario.name}
+				</security:authorize>
+				
 				<ul>
 					<li>Spring Framework</li>
 					<li>Spring MVC</li>

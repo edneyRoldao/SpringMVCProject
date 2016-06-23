@@ -1,4 +1,4 @@
-package com.springTutorialCadaDoCodigo.controller;
+package com.springTutorialCadaDoCodigo.security;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,12 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
-
-import com.springTutorialCadaDoCodigo.dao.RoleDAO;
-import com.springTutorialCadaDoCodigo.dao.UserDAO;
-import com.springTutorialCadaDoCodigo.model.Role;
-import com.springTutorialCadaDoCodigo.model.Usuario;
 
 @Controller
 @Transactional
@@ -32,17 +28,21 @@ public class AuthController {
 		return new ModelAndView("cadastro-usuario");
 	}
 	
-	@RequestMapping("/login")
-	public ModelAndView logarUsuario() {
-		return new ModelAndView("login");
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	public String login() {
+		return "login";
 	}
 	
-	@RequestMapping("/efetivaCadastro")
+	@RequestMapping(value = "/efetivaCadastro", produces = "text/plain;charset=UTF-8")
 	public ModelAndView cadastrar(Usuario usuario) {
 		
 		List<Role> roles = new ArrayList<>();
-		roles.add(buscarRole("ADMIN"));
-		roles.add(buscarRole("USUARIO"));
+		String user = "ROLE_USER";
+		roles.add(buscarRole(user));
+
+		// Desmarcar para garantir acesso administrador
+		// String admin = "ROLE_ADMIN";
+		// roles.add(buscarRole(admin));
 		
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 		String senha = encoder.encode(usuario.getPassword());

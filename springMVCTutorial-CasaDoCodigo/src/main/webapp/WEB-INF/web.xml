@@ -3,14 +3,6 @@
 		 xmlns="http://java.sun.com/xml/ns/javaee" 
 		 xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" 
 		 version="3.0">
-	
-	<!-- 
-		 Esse arquivo xml foi criado para adicionar uma pagina customizada de erro quando 
-	     o usuario tentar acessar uma URL nao autorizada para o seu perfil (ROLE)
-	     
-	     Obs: No inicio do livro que levou este projeto, o autor informa que o projeto seria todo realizado sem o uso de
-	          qualquer arquivo xml, porem... nao e exatamente o que parece.
-	 -->
 		 
 	<display-name>springMVCTutorial-CasaDoCodigo</display-name>
 	

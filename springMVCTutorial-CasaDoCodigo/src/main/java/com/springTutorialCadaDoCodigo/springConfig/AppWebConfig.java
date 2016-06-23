@@ -18,6 +18,7 @@ import org.springframework.format.support.DefaultFormattingConversionService;
 import org.springframework.format.support.FormattingConversionService;
 import org.springframework.web.accept.ContentNegotiationManager;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.multipart.MultipartResolver;
 import org.springframework.web.multipart.support.StandardServletMultipartResolver;
 import org.springframework.web.servlet.ViewResolver;
@@ -45,6 +46,14 @@ import com.springTutorialCadaDoCodigo.viewResolver.JsonViewResolver;
 @EnableCaching
 @ComponentScan("com.springTutorialCadaDoCodigo")
 public class AppWebConfig extends WebMvcConfigurerAdapter {
+
+	@Bean
+	public CharacterEncodingFilter characterEncodingFilter() {
+		CharacterEncodingFilter filter = new CharacterEncodingFilter();
+		filter.setEncoding("UTF-8");
+		filter.setForceEncoding(true);
+		return filter;
+	}
 	
 	/**
 	 * ViewResolver que trata do contentNegotiation para a aplicação atender a mais de um formato.
@@ -70,6 +79,7 @@ public class AppWebConfig extends WebMvcConfigurerAdapter {
 	public InternalResourceViewResolver internalResourceViewResolver() {
 		
 		InternalResourceViewResolver resolver = new InternalResourceViewResolver();
+		
 		resolver.setPrefix("/WEB-INF/views/");
 		resolver.setSuffix(".jsp");
 		
@@ -115,9 +125,9 @@ public class AppWebConfig extends WebMvcConfigurerAdapter {
 	public CacheManager cacheManager() {
 		
 		CacheBuilder<Object, Object> builder = CacheBuilder
-														.newBuilder()
-														.maximumSize(100)
-														.expireAfterAccess(5, TimeUnit.MINUTES);
+			.newBuilder()
+			.maximumSize(100)
+			.expireAfterAccess(5, TimeUnit.MINUTES);
 
 		GuavaCacheManager cacheManager = new GuavaCacheManager();
 		cacheManager.setCacheBuilder(builder);

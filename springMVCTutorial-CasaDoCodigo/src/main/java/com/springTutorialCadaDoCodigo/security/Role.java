@@ -1,4 +1,4 @@
-package com.springTutorialCadaDoCodigo.model;
+package com.springTutorialCadaDoCodigo.security;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

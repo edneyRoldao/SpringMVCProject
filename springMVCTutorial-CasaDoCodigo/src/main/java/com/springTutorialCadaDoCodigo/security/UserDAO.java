@@ -1,4 +1,4 @@
-package com.springTutorialCadaDoCodigo.dao;
+package com.springTutorialCadaDoCodigo.security;
 
 import java.util.List;
 
@@ -9,8 +9,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Repository;
-
-import com.springTutorialCadaDoCodigo.model.Usuario;
 
 @Repository
 public class UserDAO implements UserDetailsService {

@@ -1,4 +1,4 @@
-package com.springTutorialCadaDoCodigo.dao;
+package com.springTutorialCadaDoCodigo.security;
 
 import java.util.List;
 
@@ -6,8 +6,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import org.springframework.stereotype.Repository;
-
-import com.springTutorialCadaDoCodigo.model.Role;
 
 @Repository
 public class RoleDAO {
