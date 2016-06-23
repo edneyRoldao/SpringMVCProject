@@ -42,6 +42,7 @@ public class AuthController {
 		
 		List<Role> roles = new ArrayList<>();
 		roles.add(buscarRole("ADMIN"));
+		roles.add(buscarRole("USUARIO"));
 		
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 		String senha = encoder.encode(usuario.getPassword());

@@ -29,6 +29,7 @@ public class SpringSecurityAuthConfig extends WebSecurityConfigurerAdapter {
 			.antMatchers("/produto/cadastro").hasRole("ADMIN")
 			.antMatchers(HttpMethod.POST, "/lista").hasRole("ADMIN")
 			.antMatchers("/pagamento/**").hasAnyRole()
+			.and().formLogin().loginPage("/usuario/login")
 			.and().logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"));
 	}
 	

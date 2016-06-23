@@ -10,7 +10,7 @@
 		<header>
 			<div class="jumbotron containerApp">
 				<div class="container">
-					<h2>Seja Bem ao Tutorial de Spring MVC 4</h2>
+					<h2>Seja Bem Vindo ao Tutorial de Spring MVC 4</h2>
 					<h6>Este projeto é todo escrito em Spring, além disso, ele não contém arquivos xml. É tudo programático.<br/>
 						Este projeto é uma versão melhorada do apresentado pelo livro sobre spring MVC da casa do código pois eu<br/>
 						apliquei Bootstrap em todo o frontEnd.						

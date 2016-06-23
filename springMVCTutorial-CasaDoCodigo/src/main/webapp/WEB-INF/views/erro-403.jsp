@@ -22,24 +22,24 @@
 				</div>
 				<div class="panel-body">
 					<div class="cadastro-form">
-						<form:form method="post" action="/springTutorialCasaDoCodigo/login">
+						<form method="post" action="/springTutorialCasaDoCodigo/login" role="form" name="f">
 							<security:csrfInput/>
 							<div class="row" style="margin-bottom: 15px;margin-top: 20px">
 								<div class="col-xs-12">
 									<label for="element-1" class="sr-only">User Name</label>
-									<input id="element-1" class="form-control" placeholder="informe o login"/>
+									<input type="text" name="username" id="element-1" class="form-control" placeholder="informe o login"/>
 								</div>
 							</div>
 							<div class="row" style="margin-bottom: 15px;">
 								<div class="col-xs-12">
 									<label for="element-2" class="sr-only">Password</label>
-									<input id="element-2" class="form-control" placeholder="informe a senha"/>
+									<input type="password" name="password" id="element-2" class="form-control" placeholder="informe a senha"/>
 								</div>
 							</div>
 							<div class="form-group" style="margin-top: 15px">
-								<input type="submit" class="btn btn-primary" value="Login"/>
+								<input type="submit" name="submit" class="btn btn-primary" value="Login"/>
 							</div>
-						</form:form>
+						</form>
 					</div>
 				</div>
 			</div>			
