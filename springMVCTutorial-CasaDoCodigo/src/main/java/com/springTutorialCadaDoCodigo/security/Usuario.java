@@ -19,7 +19,7 @@ public class Usuario implements UserDetails {
 	
 	
 	@Id
-	private String login;
+	private String email;
 	private String password;
 	private String name;
 	
@@ -47,7 +47,7 @@ public class Usuario implements UserDetails {
 	 */
 	@Override
 	public String getUsername() {
-		return login;
+		return email;
 	}
 
 	@Override
@@ -73,11 +73,11 @@ public class Usuario implements UserDetails {
 	
 	// Getters and Setters
 	public String getLogin() {
-		return login;
+		return email;
 	}
 
 	public void setLogin(String login) {
-		this.login = login;
+		this.email = login;
 	}
 
 	public List<Role> getRoles() {

@@ -24,7 +24,7 @@ public class UserDAO implements UserDetailsService {
 	@Override
 	public UserDetails loadUserByUsername(String login) throws UsernameNotFoundException {
 		
-		String query = "select u from Usuario u where u.login = :login";
+		String query = "select u from Usuario u where u.email = :login";
 		List<Usuario> users = em.createQuery(query, Usuario.class).setParameter("login", login).getResultList();
 		
 		if(users.isEmpty())

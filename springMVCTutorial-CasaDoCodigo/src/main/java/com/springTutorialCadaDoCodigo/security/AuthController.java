@@ -40,9 +40,9 @@ public class AuthController {
 		String user = "ROLE_USER";
 		roles.add(buscarRole(user));
 
-		// Desmarcar para garantir acesso administrador
-		// String admin = "ROLE_ADMIN";
-		// roles.add(buscarRole(admin));
+		// Descomentar para garantir acesso administrador
+		String admin = "ROLE_ADMIN";
+		roles.add(buscarRole(admin));
 		
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 		String senha = encoder.encode(usuario.getPassword());
