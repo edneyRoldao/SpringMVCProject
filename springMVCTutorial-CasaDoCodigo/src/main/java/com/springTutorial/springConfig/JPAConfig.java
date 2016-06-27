@@ -6,6 +6,7 @@ import javax.sql.DataSource;
 import javax.persistence.EntityManagerFactory;
 
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Profile;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.JpaVendorAdapter;
@@ -39,6 +40,7 @@ public class JPAConfig {
 	}
 
 	@Bean
+	@Profile("dev")
 	public DataSource getDataSource() {
 		DriverManagerDataSource dmds = new DriverManagerDataSource();
 		

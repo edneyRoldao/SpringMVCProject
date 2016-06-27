@@ -32,6 +32,8 @@ public class ProdutoDAO {
 	public BigDecimal somarPrecosPorTipo(TipoProduto tipo) {
 		String consulta = "select sum(preco.valor) from Produto p join p.precos preco where preco.tipoProduto = :tipo";
 		TypedQuery<BigDecimal> query = em.createQuery(consulta, BigDecimal.class);
+		query.setParameter("tipo", tipo);
+		
 		return query.getSingleResult();
 	}
 	
