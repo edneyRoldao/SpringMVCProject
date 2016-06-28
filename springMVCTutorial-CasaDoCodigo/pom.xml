@@ -11,6 +11,7 @@
 		<!-- Aqui podemos definir um nome padrão para nosso war que será gerado o nosso codigo compilado -->
 		<finalName>springTutorialCasaDoCodigo</finalName>
 		<plugins>
+			
 			<!-- Usamos esse plugin para o maven ignorar a presença do arquivo: web.xml dentro da pasta lib -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -20,6 +21,7 @@
 					<failOnMissingWebXml>false</failOnMissingWebXml>
 				</configuration>
 			</plugin>
+			
 			<!-- Usamos esse plugin para avisar ao maven qual a versão do Java vamos utilizar. No caso será o 1.8 -->
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -28,6 +30,32 @@
 					<source>1.8</source>
 					<target>1.8</target>
 				</configuration>
+			</plugin>
+
+			<!-- Configuracao para deploy no heroku -->
+			<!-- Referencia: https://devcenter.heroku.com/articles/java-webapp-runner -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<version>2.3</version>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>copy</goal>
+						</goals>
+						<configuration>
+							<artifactItems>
+								<artifactItem>
+									<groupId>com.github.jsimone</groupId>
+									<artifactId>webapp-runner</artifactId>
+									<version>7.0.57.2</version>
+									<destFileName>webapp-runner.jar</destFileName>
+								</artifactItem>
+							</artifactItems>
+						</configuration>
+					</execution>
+				</executions> 
 			</plugin>
 		</plugins>
 	</build>
@@ -180,7 +208,7 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-test</artifactId>
-			<version>4.2.0.RELEASE</version>
+			<version>4.1.0.RELEASE</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
@@ -193,6 +221,11 @@
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.12</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>mail</artifactId>
+			<version>1.4.7</version>
 		</dependency>
 	</dependencies>
 </project>

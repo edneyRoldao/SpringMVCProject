@@ -1,4 +1,5 @@
 package com.springTutorial.config;
+
 import javax.sql.DataSource;
 
 import org.springframework.context.annotation.Bean;
@@ -9,7 +10,7 @@ public class DataSourceConfigTest {
 
 	@Bean
 	@Profile("test")
-	public DataSource getDataSource() {
+	public DataSource dataSource() {
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
 		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
 		dataSource.setUrl("jdbc:mysql://localhost/spring_mvc_tutorial_test");

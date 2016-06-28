@@ -16,7 +16,7 @@ import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @EnableTransactionManagement
-public class JPAConfig {
+public class ConfigJPADesenvolvimento {
 	
 	@Bean
 	public PlatformTransactionManager getPlatformTransactionManager(EntityManagerFactory emf) {
@@ -31,7 +31,7 @@ public class JPAConfig {
 		LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
 		JpaVendorAdapter vendor = new HibernateJpaVendorAdapter();
 
-		em.setDataSource(getDataSource());
+		em.setDataSource(dataSource());
 		em.setJpaProperties(getAdditionalProperties());
 		em.setPackagesToScan(new String[] {"com.springTutorial.model", "com.springTutorial.security"});
 		em.setJpaVendorAdapter(vendor);
@@ -41,7 +41,7 @@ public class JPAConfig {
 
 	@Bean
 	@Profile("dev")
-	public DataSource getDataSource() {
+	public DataSource dataSource() {
 		DriverManagerDataSource dmds = new DriverManagerDataSource();
 		
 		dmds.setDriverClassName("com.mysql.jdbc.Driver");

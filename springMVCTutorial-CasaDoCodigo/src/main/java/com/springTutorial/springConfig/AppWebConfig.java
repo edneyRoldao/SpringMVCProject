@@ -2,6 +2,7 @@ package com.springTutorial.springConfig;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 import org.springframework.cache.CacheManager;
@@ -16,6 +17,8 @@ import org.springframework.format.datetime.DateFormatter;
 import org.springframework.format.datetime.DateFormatterRegistrar;
 import org.springframework.format.support.DefaultFormattingConversionService;
 import org.springframework.format.support.FormattingConversionService;
+import org.springframework.mail.MailSender;
+import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.web.accept.ContentNegotiationManager;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.filter.CharacterEncodingFilter;
@@ -47,6 +50,32 @@ import com.springTutorial.viewResolver.JsonViewResolver;
 @ComponentScan("com.springTutorial")
 public class AppWebConfig extends WebMvcConfigurerAdapter {
 
+	@Bean
+	public MailSender mailSender() {
+		JavaMailSenderImpl javaMailSender = new JavaMailSenderImpl();
+		
+		// SMTP do google
+		javaMailSender.setHost("smtp.gmail.com");
+		
+		// Senha de acesso ao email que vai enviar o email
+		javaMailSender.setPassword("");
+		
+		// Porta SMTP do google
+		javaMailSender.setPort(587);
+		
+		// email de origin que irá enviar os emails
+		javaMailSender.setUsername("");
+		
+		// Autorizando o envio de email
+		Properties mailProperties = new Properties();
+		mailProperties.put("mail.smtp.auth", true);
+		mailProperties.put("mail.smtp.starttls.enable", true);
+		
+		javaMailSender.setJavaMailProperties(mailProperties);
+		
+		return javaMailSender;
+	}
+	
 	@Bean
 	public CharacterEncodingFilter characterEncodingFilter() {
 		CharacterEncodingFilter filter = new CharacterEncodingFilter();

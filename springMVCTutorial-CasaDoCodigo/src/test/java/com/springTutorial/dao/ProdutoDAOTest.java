@@ -8,6 +8,7 @@ import javax.transaction.Transactional;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
@@ -17,17 +18,16 @@ import com.springTutorial.builder.ProdutoBuilder;
 import com.springTutorial.config.DataSourceConfigTest;
 import com.springTutorial.enuns.TipoProduto;
 import com.springTutorial.model.Produto;
-import com.springTutorial.springConfig.JPAConfig;
+import com.springTutorial.springConfig.ConfigJPADesenvolvimento;
 
 @ActiveProfiles("test")
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = {DataSourceConfigTest.class, ProdutoDAO.class, JPAConfig.class})
+@ContextConfiguration(classes = {DataSourceConfigTest.class, ProdutoDAO.class, ConfigJPADesenvolvimento.class})
 public class ProdutoDAOTest {
 
 	@Autowired
-	ProdutoDAO produtoDAO;
+	private ProdutoDAO produtoDAO;
 
-	
 	@Test
 	@Transactional
 	public void deveSomarOsPrecosPorTipo() {
