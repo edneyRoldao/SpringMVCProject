@@ -15,14 +15,14 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.springTutorial.builder.ProdutoBuilder;
-import com.springTutorial.config.DataSourceConfigTest;
+import com.springTutorial.config.ConfigJPATest;
 import com.springTutorial.enuns.TipoProduto;
 import com.springTutorial.model.Produto;
 import com.springTutorial.springConfig.ConfigJPADesenvolvimento;
 
-@ActiveProfiles("test")
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = {DataSourceConfigTest.class, ProdutoDAO.class, ConfigJPADesenvolvimento.class})
+@ContextConfiguration(classes = {ProdutoDAO.class, ConfigJPADesenvolvimento.class, ConfigJPATest.class})
+@ActiveProfiles("test")
 public class ProdutoDAOTest {
 
 	@Autowired
