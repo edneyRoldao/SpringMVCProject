@@ -11,6 +11,31 @@
 		<!-- Aqui podemos definir um nome padrão para nosso war que será gerado o nosso codigo compilado -->
 		<finalName>springTutorialCasaDoCodigo</finalName>
 		<plugins>
+		
+			<!-- Plugin que realiza o deploy no Heroku -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<version>2.3</version>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+						<goal>copy</goal>
+						</goals>
+						<configuration>
+							<artifactItems>
+								<artifactItem>
+									<groupId>com.github.jsimone</groupId>
+									<artifactId>webapp-runner</artifactId>
+									<version>7.0.57.2</version>
+									<destFileName>webapp-runner.jar</destFileName>
+								</artifactItem>
+							</artifactItems>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 			
 			<!-- Usamos esse plugin para o maven ignorar a presença do arquivo: web.xml dentro da pasta lib -->
 			<plugin>
