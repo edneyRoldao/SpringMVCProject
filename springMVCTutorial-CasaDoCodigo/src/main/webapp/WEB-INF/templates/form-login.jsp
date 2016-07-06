@@ -5,7 +5,7 @@
 		</div>
 		<div class="panel-body">
 			<div class="cadastro-form">
-				<form method="POST" action="/springTutorialCasaDoCodigo/usuario/login" name="f">
+				<form method="POST" action="/usuario/login" name="f">
 					<security:csrfInput/>
 					<div class="row" style="margin-bottom: 15px;margin-top: 20px">
 						<div class="col-xs-12">

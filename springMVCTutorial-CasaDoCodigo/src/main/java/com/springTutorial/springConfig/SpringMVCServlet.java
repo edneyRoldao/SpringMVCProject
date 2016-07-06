@@ -1,12 +1,8 @@
 package com.springTutorial.springConfig;
 
 import javax.servlet.MultipartConfigElement;
-import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
 import javax.servlet.ServletRegistration.Dynamic;
 
-import org.springframework.core.env.AbstractEnvironment;
-import org.springframework.web.context.request.RequestContextListener;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 import com.springTutorial.security.SpringSecurityAuthConfig;
@@ -24,7 +20,7 @@ public class SpringMVCServlet extends AbstractAnnotationConfigDispatcherServletI
 
 	@Override
 	protected Class<?>[] getRootConfigClasses() {
-		return new Class[]{AppWebConfig.class, ConfigJPADesenvolvimento.class, ConfigJPAProducao.class, SpringSecurityAuthConfig.class};
+		return new Class[]{AppWebConfig.class, ConfigJPADesenvolvimento.class, SpringSecurityAuthConfig.class};
 	}
 
 	/*
@@ -47,13 +43,6 @@ public class SpringMVCServlet extends AbstractAnnotationConfigDispatcherServletI
 	@Override
 	protected void customizeRegistration(Dynamic registration) {
 		registration.setMultipartConfig(new MultipartConfigElement(""));
-	}
-
-	@Override
-	public void onStartup(ServletContext servletContext) throws ServletException {
-		super.onStartup(servletContext);
-		servletContext.addListener(RequestContextListener.class);
-		servletContext.setInitParameter(AbstractEnvironment.DEFAULT_PROFILES_PROPERTY_NAME, "dev");
 	}
 	
 }

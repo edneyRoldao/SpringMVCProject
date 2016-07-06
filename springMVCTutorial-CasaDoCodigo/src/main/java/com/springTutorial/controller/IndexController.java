@@ -11,5 +11,10 @@ public class IndexController {
 	public ModelAndView index() {
 		return new ModelAndView("index");
 	}
+
+	@RequestMapping("/")
+	public ModelAndView index2() {
+		return new ModelAndView("index");
+	}
 	
 }

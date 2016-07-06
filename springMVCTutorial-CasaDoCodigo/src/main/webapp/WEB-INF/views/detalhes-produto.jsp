@@ -27,7 +27,7 @@
 	            </div>
 	        </div>
 			<div class="btnValores row text-center">
-				<form:form action="/springTutorialCasaDoCodigo/carrinho" method="post" >
+				<form:form action="/carrinho" method="post" >
 					<security:csrfInput/>
 					<input type="hidden" value="${produto.id}" name="idProduto">
 					<c:forEach items="${produto.precos}" var="preco">

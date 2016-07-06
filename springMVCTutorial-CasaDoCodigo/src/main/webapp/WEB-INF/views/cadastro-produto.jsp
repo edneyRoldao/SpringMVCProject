@@ -22,7 +22,7 @@
 				</div>
 				<div class="panel-body">
 					<div class="cadastro-form">
-						<form:form method="post" action="/springTutorialCasaDoCodigo/produto/lista" commandName="produto" enctype="multipart/form-data">
+						<form:form method="post" action="/produto/lista" commandName="produto" enctype="multipart/form-data">
 							<security:csrfInput/>						
 							<div class="row">
 								<div class="col-xs-6">

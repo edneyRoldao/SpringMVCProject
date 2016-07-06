@@ -7,7 +7,6 @@ import javax.persistence.EntityManagerFactory;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Profile;
 import org.springframework.core.env.Environment;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.jpa.JpaTransactionManager;
@@ -43,7 +42,6 @@ public class ConfigJPADesenvolvimento {
 	}
 
 	@Bean
-	@Profile("dev")
 	public DataSource dataSource(Environment Environment) {
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
 		

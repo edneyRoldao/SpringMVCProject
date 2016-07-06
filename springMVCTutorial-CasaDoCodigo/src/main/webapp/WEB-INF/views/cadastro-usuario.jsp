@@ -17,7 +17,7 @@
 				</div>
 				<div class="panel-body">
 					<div class="cadastro-form">
-						<form:form method="post" action="/springTutorialCasaDoCodigo/usuario/efetivaCadastro" commandName="usuario">
+						<form:form method="post" action="/usuario/efetivaCadastro" commandName="usuario">
 							<security:csrfInput/>
 							<div class="row" style="margin-bottom: 15px;margin-top: 20px">
 								<div class="col-xs-12">

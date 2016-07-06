@@ -47,7 +47,7 @@
 					</table>
 				</div>
 				<div class="panel-footer">
-					<form:form method="post" action="/springTutorialCasaDoCodigo/pagamento/finaliza">
+					<form:form method="post" action="/pagamento/finaliza">
 						<security:csrfInput/>
 						<input type="submit" value="Finalizar Compra ( total R$ ${carrinhoDeCompra.total} )" class="btn btn-default btn-success">
 					</form:form>						

@@ -39,7 +39,7 @@ import com.springTutorial.viewResolver.JsonViewResolver;
  * Nessa classe iremos registrar todos os nossos controllers e classe que serão
  * gerenciadas pelo container do Spring.
  * 
- * URL de acesso: http://localhost:8080/springTutorialCasaDoCodigo/
+ * URL de acesso: http://localhost:8080/
  * 
  * @author Edney Roldao
  *
