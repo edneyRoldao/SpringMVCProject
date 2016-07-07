@@ -7,7 +7,7 @@ import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.validation.constraints.NotNull;
 
-import com.springTutorial.enuns.TipoProduto;
+import com.springTutorial.enums.TipoProduto;
 
 @Embeddable
 public class Preco implements Serializable {

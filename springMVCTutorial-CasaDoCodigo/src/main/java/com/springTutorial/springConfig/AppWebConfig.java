@@ -32,6 +32,7 @@ import org.springframework.web.servlet.view.ContentNegotiatingViewResolver;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import com.google.common.cache.CacheBuilder;
+import com.springTutorial.enums.UserData;
 import com.springTutorial.viewResolver.JsonViewResolver;
 
 
@@ -58,13 +59,13 @@ public class AppWebConfig extends WebMvcConfigurerAdapter {
 		javaMailSender.setHost("smtp.gmail.com");
 		
 		// Senha de acesso ao email que vai enviar o email
-		javaMailSender.setPassword("");
+		javaMailSender.setPassword(UserData.PASSWORD.value);
 		
 		// Porta SMTP do google
 		javaMailSender.setPort(587);
 		
 		// email de origin que irá enviar os emails
-		javaMailSender.setUsername("");
+		javaMailSender.setUsername(UserData.EMAIL.value);
 		
 		// Autorizando o envio de email
 		Properties mailProperties = new Properties();

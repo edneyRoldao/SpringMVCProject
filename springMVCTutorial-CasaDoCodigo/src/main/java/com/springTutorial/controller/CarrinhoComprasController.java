@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.springTutorial.dao.ProdutoDAO;
-import com.springTutorial.enuns.TipoProduto;
+import com.springTutorial.enums.TipoProduto;
 import com.springTutorial.model.CarrinhoDeCompra;
 import com.springTutorial.model.ItemCompra;
 import com.springTutorial.model.Produto;

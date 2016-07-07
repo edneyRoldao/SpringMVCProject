@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-import com.springTutorial.enuns.TipoProduto;
+import com.springTutorial.enums.TipoProduto;
 import com.springTutorial.model.Preco;
 import com.springTutorial.model.Produto;
 

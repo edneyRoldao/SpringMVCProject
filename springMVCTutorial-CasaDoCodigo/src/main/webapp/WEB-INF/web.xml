@@ -11,4 +11,9 @@
 		<location>/WEB-INF/views/erro-403.jsp</location>		
 	</error-page>
 
+	<context-param>
+		<param-name>spring.profiles.default</param-name>
+		<param-value>prod</param-value>
+	</context-param>
+
 </web-app>

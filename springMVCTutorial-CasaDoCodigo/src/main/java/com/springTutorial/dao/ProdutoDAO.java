@@ -8,7 +8,7 @@ import javax.persistence.TypedQuery;
 
 import org.springframework.stereotype.Repository;
 
-import com.springTutorial.enuns.TipoProduto;
+import com.springTutorial.enums.TipoProduto;
 import com.springTutorial.model.Produto;
 
 @Repository

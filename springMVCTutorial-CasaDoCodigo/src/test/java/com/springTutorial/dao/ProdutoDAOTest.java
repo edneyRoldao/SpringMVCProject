@@ -16,12 +16,12 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.springTutorial.builder.ProdutoBuilder;
 import com.springTutorial.config.ConfigJPATest;
-import com.springTutorial.enuns.TipoProduto;
+import com.springTutorial.enums.TipoProduto;
 import com.springTutorial.model.Produto;
-import com.springTutorial.springConfig.ConfigJPADesenvolvimento;
+import com.springTutorial.springConfig.ConfigJPADev;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = {ProdutoDAO.class, ConfigJPADesenvolvimento.class, ConfigJPATest.class})
+@ContextConfiguration(classes = {ProdutoDAO.class, ConfigJPADev.class, ConfigJPATest.class})
 @ActiveProfiles("test")
 public class ProdutoDAOTest {
 

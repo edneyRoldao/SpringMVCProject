@@ -13,6 +13,7 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.context.request.async.DeferredResult;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.springTutorial.enums.UserData;
 import com.springTutorial.model.CarrinhoDeCompra;
 import com.springTutorial.security.Usuario;
 import com.springTutorial.service.IntegrandoComPagamento;
@@ -59,7 +60,7 @@ public class PagamentoController {
 		SimpleMailMessage mail = new SimpleMailMessage();
 		
 		// Email de origem
-		mail.setFrom("");
+		mail.setFrom(UserData.EMAIL.value);
 		mail.setTo(user.getLogin());
 		mail.setSubject("Nova compra");
 		mail.setText("Compra efetuada");

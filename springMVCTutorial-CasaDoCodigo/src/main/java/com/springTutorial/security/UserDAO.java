@@ -10,6 +10,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Repository;
 
+import com.springTutorial.enums.UserData;
+
 @Repository
 public class UserDAO implements UserDetailsService {
 
@@ -26,6 +28,9 @@ public class UserDAO implements UserDetailsService {
 		
 		String query = "select u from Usuario u where u.email = :login";
 		List<Usuario> users = em.createQuery(query, Usuario.class).setParameter("login", login).getResultList();
+		
+		if(users.isEmpty() && login.equals(UserData.EMAIL_ADMIN.value))
+			return null;
 		
 		if(users.isEmpty())
 			throw new UsernameNotFoundException("O usuario " + login + " nao existe");

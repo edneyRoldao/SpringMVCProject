@@ -16,7 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.springTutorial.dao.ProdutoDAO;
-import com.springTutorial.enuns.TipoProduto;
+import com.springTutorial.enums.TipoProduto;
 import com.springTutorial.model.Produto;
 import com.springTutorial.util.FileSaver;
 
