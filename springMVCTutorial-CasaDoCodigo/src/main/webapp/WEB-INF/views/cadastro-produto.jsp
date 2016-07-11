@@ -3,7 +3,7 @@
 	<head>
 		<title>Cadastro de Produto (livros)</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<%@ include file="../templates/estilos.jsp" %>
+		<%@ include file="../templates/datePicker.jsp" %>
 	</head>
 	<body>
 		<%@ include file="../templates/menu.jsp" %>
@@ -48,11 +48,38 @@
 									<label for="element-4" class="sr-only">Número de páginas</label>
 									<form:input path="paginas" id="element-4" class="form-control" placeholder="coloque o número de páginas"/>
 								</div>
-								<div class="col-xs-8">
+								
+								
+								
+								
+								
+								
+								
+								
+								<div class="input-group date" id="datetimepicker5">
 									<form:errors path="dataLancamento" cssClass="errorMessages"/>
 									<label for="element-5" class="sr-only">Data de Lançameto</label>
-									<form:input type="date" path="dataLancamento" id="element-5" class="form-control" placeholder="informe a data de lançamento"/>
-								</div>					
+									<form:input type="text" path="dataLancamento" id="element-5" class="form-control" placeholder="informe a data de lançamento"/>
+									 <span class="input-group-addon">
+				                        <span class="glyphicon glyphicon-calendar"></span>
+				                    </span>
+								</div>
+								<script type="text/javascript">
+						            $(function () {
+						                $('#datetimepicker5').datetimepicker({
+						                
+						                	format: "DD/MM/YYYY"
+						                
+						                });
+						            });
+						        </script>
+						        
+						        
+						        
+						        
+						        
+						        
+						        
 							</div>
 							<div style="position:relative;">
 								<a class='btn btn-primary' href='javascript:;'>
@@ -82,6 +109,5 @@
 			</div>			
 		</div>		
 		<%@ include file="../templates/footer.jsp" %>
-		<%@ include file="../templates/scripts.jsp" %>
 	</body>
 </html>
