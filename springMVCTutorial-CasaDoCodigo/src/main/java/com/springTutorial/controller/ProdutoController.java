@@ -1,5 +1,9 @@
 package com.springTutorial.controller;
 
+import java.io.IOException;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.transaction.Transactional;
 import javax.validation.Valid;
 
@@ -11,14 +15,16 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.springTutorial.dao.ProdutoDAO;
+import com.springTutorial.dao.UploadFileDAO;
 import com.springTutorial.enums.TipoProduto;
 import com.springTutorial.model.Produto;
-import com.springTutorial.util.FileSaver;
+import com.springTutorial.model.UploadFile;
 
 @Controller
 @Transactional
@@ -29,7 +35,7 @@ public class ProdutoController {
 	private ProdutoDAO produtoDAO;
 	
 	@Autowired
-	private FileSaver fileSaver;
+	private UploadFileDAO uploadFileDAO;
 
 	/*	
 	 	O código abaixo foi comentado pois não iremos usar validadores customizados. 
@@ -53,15 +59,20 @@ public class ProdutoController {
 
 	@CacheEvict(value="livros", allEntries=true)
 	@RequestMapping(value = "/lista", method = RequestMethod.POST, name = "cadastroProduto")
-	public ModelAndView cadastrar(MultipartFile resumo, @Valid Produto produto, BindingResult bindResult, RedirectAttributes redirect) {
+	public ModelAndView cadastrar(MultipartFile imgFile, @Valid Produto produto, BindingResult bindResult, RedirectAttributes redirect) throws IOException {
 		
 		if (bindResult.hasErrors())
 			return callForm(produto);
 
-		if(!resumo.isEmpty()) {
-			String path = saveFileUploaded(resumo);
+		if(!imgFile.isEmpty()) {
+			System.out.println("Saving file: " + imgFile.getOriginalFilename());
+
+			UploadFile uploadFile = new UploadFile();
+			uploadFile.setFileName(imgFile.getOriginalFilename());
+			uploadFile.setData(imgFile.getBytes());
 			
-			produto.setCaminhoResumo(path);
+			uploadFileDAO.save(uploadFile);
+			produto.setImagem(uploadFile);
 		}
 		
 		produtoDAO.cadastrar(produto);
@@ -93,10 +104,12 @@ public class ProdutoController {
 		return model;
 	}
 	
-	private String saveFileUploaded(MultipartFile resumo) {
-		String webPath = "/" + fileSaver.write("resources/img", resumo);
-		// path to retrieve the file and use from html or jps file <img src="${product.summaryPath}"/>
-		return webPath;
+	@RequestMapping(value = "displayImage", method = RequestMethod.GET)
+	public void showImage(@RequestParam("id") Integer itemId, HttpServletResponse response, HttpServletRequest request) throws IOException {
+		UploadFile file = uploadFileDAO.buscar(itemId);
+		response.setContentType("image/jpeg, image/jpg, image/png, image/gif");
+		response.getOutputStream().write(file.getData());
+		response.getOutputStream().close();
 	}
 
 }

@@ -13,6 +13,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
@@ -48,8 +49,9 @@ public class Produto implements Serializable {
 	@NotNull(message = "esta campo é obrigatório, seu formato é dd/MM/yyyy")
 	private Calendar dataLancamento;
 
-	private String caminhoResumo;
-
+	@ManyToOne	
+	private UploadFile imagem;
+	
 	@ElementCollection(fetch = FetchType.EAGER)
 	private List<Preco> precos = new ArrayList<>();
 	
@@ -111,12 +113,12 @@ public class Produto implements Serializable {
 		this.dataLancamento = dataLancamento;
 	}
 
-	public String getCaminhoResumo() {
-		return caminhoResumo;
+	public UploadFile getImagem() {
+		return imagem;
 	}
 
-	public void setCaminhoResumo(String caminhoResumo) {
-		this.caminhoResumo = caminhoResumo;
+	public void setImagem(UploadFile imagem) {
+		this.imagem = imagem;
 	}
 
 	public List<Preco> getPrecos() {

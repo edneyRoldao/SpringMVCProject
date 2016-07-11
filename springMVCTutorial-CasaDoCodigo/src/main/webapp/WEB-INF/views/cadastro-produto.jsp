@@ -48,14 +48,6 @@
 									<label for="element-4" class="sr-only">Número de páginas</label>
 									<form:input path="paginas" id="element-4" class="form-control" placeholder="coloque o número de páginas"/>
 								</div>
-								
-								
-								
-								
-								
-								
-								
-								
 								<div class="input-group date" id="datetimepicker5">
 									<form:errors path="dataLancamento" cssClass="errorMessages"/>
 									<label for="element-5" class="sr-only">Data de Lançameto</label>
@@ -73,18 +65,11 @@
 						                });
 						            });
 						        </script>
-						        
-						        
-						        
-						        
-						        
-						        
-						        
 							</div>
 							<div style="position:relative;">
 								<a class='btn btn-primary' href='javascript:;'>
 								    Choose File...
-								    <input type="file" name="resumo" class="btn-file" size="40"  onchange='$("#upload-file-info").html($(this).val());'>
+								    <input type="file" name="imgFile" class="btn-file" size="40"  onchange='$("#upload-file-info").html($(this).val());'>
 								</a>
 								&nbsp;
 								<span class='label label-info' id="upload-file-info"></span>

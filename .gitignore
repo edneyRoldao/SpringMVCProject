@@ -17,5 +17,6 @@ local.properties
 *.launch
 .factorypath
 .target
+*UserData.java
 
 
