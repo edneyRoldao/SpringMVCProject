@@ -11,7 +11,7 @@
 		<%@ include file="../templates/menu.jsp" %>
 		
 		<header>
-			<div class="jumbotron containerApp" style="margin-top: 65px;width: 800px;margin-left: 500px;">
+			<div class="jumbotron containerApp" style="margin-top: 65px;width: 800px;margin-left: 250px;">
 				<div class="container">
 					<h2>COMPRA FINALIZADA COM SUCESSO</h2>
 				</div>
