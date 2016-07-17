@@ -1,30 +1,23 @@
 package com.springTutorial.model;
 
 import javax.persistence.Basic;
-import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Lob;
-import javax.persistence.Table;
 
 @Entity
-@Table(name = "FILE_UPLOAD")
 public class UploadFile {
 	
 	// Atributos
 	@Id
 	@GeneratedValue
-	@Column(name = "FILE_ID")
 	private Integer id;
 	
-	@Column(name = "FILE_NAME")
 	private String fileName;
 	
 	@Lob
-	@Basic(fetch = FetchType.LAZY)
-	@Column(name = "FILE_DATA", columnDefinition = "mediumblob")
+	@Basic
 	private byte[] data;
 
 	

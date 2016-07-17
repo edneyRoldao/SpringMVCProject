@@ -26,7 +26,9 @@ public class ProdutoDAO {
 	}
 
 	public Produto buscar(int id) {
-		return em.find(Produto.class, id);
+		String query = "select distinct(p) from Produto p join fetch p.precos where p.id = :id";
+		TypedQuery<Produto> produto = em.createQuery(query, Produto.class).setParameter("id", id);
+		return produto.getSingleResult();
 	}
 	
 	public BigDecimal somarPrecosPorTipo(TipoProduto tipo) {

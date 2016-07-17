@@ -43,7 +43,6 @@ public class CarrinhoComprasController {
 	private ItemCompra criarItem(Integer idProduto, TipoProduto tipo) {
 		Produto produto = produtoDAO.buscar(idProduto);
 		ItemCompra item = new ItemCompra(produto, tipo);
-		
 		return item;
 	}
 

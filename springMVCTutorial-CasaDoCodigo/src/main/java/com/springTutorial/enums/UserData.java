@@ -2,7 +2,7 @@ package com.springTutorial.enums;
 
 public enum UserData {
 
-	EMAIL(""), PASSWORD(""), USER_ADMIN(""), EMAIL_ADMIN(""), PASS_ADMIN("");
+	EMAIL(""), PASSWORD("");
 	
 	public String value;
 	

@@ -14,7 +14,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
-import javax.persistence.Table;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
@@ -24,7 +23,6 @@ import org.springframework.format.annotation.DateTimeFormat;
 import com.springTutorial.enums.TipoProduto;
 
 @Entity
-@Table(name = "TB_PRODUTO")
 public class Produto implements Serializable {
 
 	private static final long serialVersionUID = 1L;

@@ -29,7 +29,7 @@ public class UserDAO implements UserDetailsService {
 		String query = "select u from Usuario u where u.email = :login";
 		List<Usuario> users = em.createQuery(query, Usuario.class).setParameter("login", login).getResultList();
 		
-		if(users.isEmpty() && login.equals(UserData.EMAIL_ADMIN.value))
+		if(users.isEmpty() && login.equals(UserData.EMAIL.value))
 			return null;
 		
 		if(users.isEmpty())
