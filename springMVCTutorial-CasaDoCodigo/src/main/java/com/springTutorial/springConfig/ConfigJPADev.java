@@ -34,6 +34,7 @@ public class ConfigJPADev {
 	
 	@Bean
 	public PlatformTransactionManager platformTransactionManager(EntityManagerFactory emf) {
+		
 		JpaTransactionManager JPAManager = new JpaTransactionManager();
 		JPAManager.setEntityManagerFactory(emf);
 		
@@ -42,8 +43,9 @@ public class ConfigJPADev {
 	
 	@Bean
 	public LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource dataSource) {
-		LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
+		
 		JpaVendorAdapter vendor = new HibernateJpaVendorAdapter();
+		LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
 
 		em.setDataSource(dataSource);
 		em.setJpaProperties(additionalProperties());
@@ -55,21 +57,23 @@ public class ConfigJPADev {
 
 	@Bean
 	public DataSource dataSource(Environment environment) {
+
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
-		
-		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-		dataSource.setUrl("jdbc:mysql://localhost/spring_mvc_tutorial");
 		dataSource.setUsername("root");
 		dataSource.setPassword("conam");
+		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
+		dataSource.setUrl("jdbc:mysql://localhost/spring_mvc_tutorial");
 		
 		return dataSource;
 	}
 	
 	private Properties additionalProperties() {
+				
 		Properties props = new Properties();
+		props.setProperty("hibernate.show_sql", "true");
 		props.setProperty("hibernate.hbm2ddl.auto", "create");
 		props.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect");
-		props.setProperty("hibernate.show_sql", "true");
+		
 		return props;
 	}
 }

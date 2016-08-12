@@ -25,6 +25,7 @@ public class ConfigJPAProd {
 	
 	@Bean
 	public PlatformTransactionManager platformTransactionManager(EntityManagerFactory emf) {
+	
 		JpaTransactionManager JPAManager = new JpaTransactionManager();
 		JPAManager.setEntityManagerFactory(emf);
 		
@@ -33,13 +34,14 @@ public class ConfigJPAProd {
 	
 	@Bean
 	public LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource dataSource) {
-		LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
+		
 		JpaVendorAdapter vendor = new HibernateJpaVendorAdapter();
+		LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
 
 		em.setDataSource(dataSource);
+		em.setJpaVendorAdapter(vendor);
 		em.setJpaProperties(additionalProperties());
 		em.setPackagesToScan(new String[] {"com.springTutorial.model", "com.springTutorial.security"});
-		em.setJpaVendorAdapter(vendor);
 		
 		return em;
 	}
@@ -64,10 +66,12 @@ public class ConfigJPAProd {
 	}
 	
 	private Properties additionalProperties() {
+		
 		Properties props = new Properties();
 		props.setProperty("hibernate.show_sql", "true");
 		props.setProperty("hibernate.hbm2ddl.auto", "create");
-				
+		props.setProperty("hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect");			
+		
 		return props;
 	}
 }

@@ -6,6 +6,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 
+/**
+ * Como o banco de dados em produção é o postgres, precisamos retirar a anotação @Lob do atributo data
+ * 
+ * @author Edney Roldao
+ *
+ */
 @Entity
 public class UploadFile {
 	
