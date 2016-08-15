@@ -21,6 +21,15 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @Configuration
 @Profile("prod")
 @EnableTransactionManagement
+/**
+ * Para o projeto funcionar em producao:
+ * 
+ * Comentar a anotacao @Lob das classes Produto e upload file.
+ * Comentar o envio de e-mail na classe PagamentoController pois o google esta bloqueando a envio pelo heroku
+ * 
+ * @author edneyroldao
+ *
+ */
 public class ConfigJPAProd {
 	
 	@Bean
@@ -69,8 +78,8 @@ public class ConfigJPAProd {
 		
 		Properties props = new Properties();
 		props.setProperty("hibernate.show_sql", "true");
-		props.setProperty("hibernate.hbm2ddl.auto", "create");
-		props.setProperty("hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect");			
+		props.setProperty("hibernate.hbm2ddl.auto", "update");
+		props.setProperty("hibernate.dialect", "org.hibernate.dialect.PostgreSQL9Dialect");			
 		
 		return props;
 	}

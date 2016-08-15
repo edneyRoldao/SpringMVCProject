@@ -19,7 +19,7 @@
 	        </div>
 	        <div class="row">
 	            <div class="col-xs-3 col-md-4">
-					<img src='<spring:url value="/produto/displayImage/?id=${produto.imagem.id}"/>' class="img-responsive imgDetalhes" alt="${produto.imagem.id}">
+					<img src='<spring:url value="/produto/displayImage/${produto.imagem.id}"/>' class="img-responsive imgDetalhes" alt="${produto.imagem.id}">
 	            </div>
 	            <div class="col-md-8">
 	                <h3>Resumo</h3>

@@ -56,7 +56,7 @@ public class PagamentoController {
 		return new ModelAndView("compra-erro");
 	}
 
-	private void enviarEmailNovaCompra(Usuario user) {
+	public void enviarEmailNovaCompra(Usuario user) {
 		SimpleMailMessage mail = new SimpleMailMessage();
 		
 		// Email de origem
